@@ -1,0 +1,66 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "lunaui-angular",
+  "projects": {
+    "lunaui-angular": {
+      "schematics": {
+        "@schematics/angular:component": {
+          "changeDetection": "OnPush",
+          "inlineStyle": true
+        }
+      },
+      "projectType": "library",
+      "root": "projects/lunaui-angular",
+      "sourceRoot": "projects/lunaui-angular/src",
+      "prefix": "b",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/lunaui-angular/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/lunaui-angular/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/lunaui-angular/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": "projects/lunaui-angular/.storybook",
+            "browserTarget": "lunaui-angular:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/lunaui-angular"
+            ],
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": "projects/lunaui-angular/.storybook",
+            "browserTarget": "lunaui-angular:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/lunaui-angular"
+            ],
+            "outputDir": "storybook-static"
+          }
+        }
+      }
+    }
+  }
+}
