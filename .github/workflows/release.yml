@@ -1,17 +1,16 @@
-name: Update Library Release
+name: Publish library
 
 on:
   workflow_dispatch:
 
 jobs:
   release:
-    name: Release
-    permissions:
-      contents: write #Allows to publish a GH release
-      issues: write #Allows to comment on released issues
-      pull-requests: write #Allows to comment on released PRs
-      id-token: write # enable use of OIDC for npm provenance
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    permissions:
+      contents: read
+      packages: write # allow GITHUB_TOKEN to publish packages
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -23,10 +22,15 @@ jobs:
         run: npm ci
       - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
         run: npm audit signatures
+      - name: Make sync-version.sh executable
+        run: chmod +x ./sync-version.sh
+      - name: Sync version
+        run: ./sync-version.sh
       - name: Build
         run: npm run build
-      - name: Exec semantic-release
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ github.token }}
-        run: npx semantic-release
+      - name: npm publish
+        uses: JS-DevTools/npm-publish@v3
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: dist/lunaui-angular
+          access: public
