@@ -1,10 +1,11 @@
-name: Publish library
+name: PublishLib
 
 on:
   workflow_dispatch:
 
 jobs:
-  release:
+  publish:
+    name: publish
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,4 +1,4 @@
-name: CAN MERGE
+name: merge
 
 on:
   push:
@@ -15,7 +15,7 @@ on:
 
 jobs:
   avoid_redundancy:
-    name: Avoid redundancy
+    name: avoid redundancy
     runs-on: ubuntu-22.04
     steps:
       - name: Cancel Previous Runs
@@ -25,6 +25,7 @@ jobs:
 
   lint:
     name: lint project
+    needs: avoid_redundancy
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
@@ -48,6 +49,7 @@ jobs:
 
   test:
     name: test project
+    needs: avoid_redundancy
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
