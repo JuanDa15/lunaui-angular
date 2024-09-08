@@ -1,0 +1,16 @@
+:root {
+  --background-dark: #121212; /* Primary dark background */
+  --primary-accent-dark: #00BFFF; /* Bright cyan for primary elements */
+  --secondary-light-dark: #D3D3D3; /* Light gray for secondary text and elements */
+  --muted-dark: #333333; /* Muted dark gray for subtle background areas*/
+  --accent-green-dark: #32CD32; /* Lime green for  Success details*/
+  --accent-red-dark: #FF4500; /* Vibrant red for error details*/
+  --focus-outline-dark: #8A2BE2;  /* Purple outline for Outline for focused elements*/
+  --background-light: #FFFFFF; /* Primary light*/
+  --primary-accent-light: #00BFFF; /* Bright cyan*/
+  --secondary-light-light: #707070; /*  Dark gray */
+  --muted-light: #F5F5F5; /* Light muted  */
+  --accent-green-light: #32CD32; /* Lime green  */
+  --accent-red-light: #FF4500; /* Vibrant red*/
+  --focus-outline-light: #007ACC; /* Blue outline*/
+}
