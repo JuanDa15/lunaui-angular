@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/JuanDa15/lunaui-angular/compare/v1.0.0...v2.0.0) (2024-09-08)
+
+
+### chore
+
+* Downgrade angular version from 18 to 15 ([7b7a6ae](https://github.com/JuanDa15/lunaui-angular/commit/7b7a6ae894973c3c37dd890ad8131a819546720d))
+
+
+### BREAKING CHANGES
+
+* Change angular library version
+
 # 1.0.0 (2024-09-06)
 
 
