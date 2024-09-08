@@ -7,13 +7,13 @@
       "schematics": {
         "@schematics/angular:component": {
           "changeDetection": "OnPush",
-          "inlineStyle": true
+          "inlineStyle": false
         }
       },
       "projectType": "library",
       "root": "projects/lunaui-angular",
       "sourceRoot": "projects/lunaui-angular/src",
-      "prefix": "b",
+      "prefix": "luna",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
