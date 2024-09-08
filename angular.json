@@ -30,6 +30,14 @@
           },
           "defaultConfiguration": "production"
         },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/lunaui-angular/src/test.ts",
+            "tsConfig": "projects/lunaui-angular/tsconfig.spec.json",
+            "karmaConfig": "projects/lunaui-angular/karma.conf.js"
+          }
+        },
         "storybook": {
           "builder": "@storybook/angular:start-storybook",
           "options": {
