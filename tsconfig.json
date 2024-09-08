@@ -3,10 +3,11 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
     "paths": {
       "lunaui-angular": ["./dist/lunaui-angular"]
     },
-    "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
