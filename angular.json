@@ -7,13 +7,13 @@
       "schematics": {
         "@schematics/angular:component": {
           "changeDetection": "OnPush",
-          "inlineStyle": true
+          "inlineStyle": false
         }
       },
       "projectType": "library",
       "root": "projects/lunaui-angular",
       "sourceRoot": "projects/lunaui-angular/src",
-      "prefix": "b",
+      "prefix": "luna",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -29,6 +29,14 @@
             }
           },
           "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/lunaui-angular/src/test.ts",
+            "tsConfig": "projects/lunaui-angular/tsconfig.spec.json",
+            "karmaConfig": "projects/lunaui-angular/karma.conf.js"
+          }
         },
         "storybook": {
           "builder": "@storybook/angular:start-storybook",
