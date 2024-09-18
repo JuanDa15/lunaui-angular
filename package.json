@@ -20,7 +20,6 @@
     "lint": "eslint projects",
     "lint:fix": "eslint projects --fix",
     "storybook": "ng run lunaui-angular:storybook",
-    "storybook:test": "npm run test-storybook",
     "build-storybook": "ng run lunaui-angular:build-storybook"
   },
   "private": false,
@@ -33,7 +32,10 @@
     "@angular/platform-browser": "^15.2.10",
     "@angular/platform-browser-dynamic": "^15.2.10",
     "@angular/router": "^15.2.10",
+    "npm": "^10.8.3",
+    "run": "^1.5.0",
     "rxjs": "~7.8.0",
+    "test-storybook": "^1.0.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
   },
