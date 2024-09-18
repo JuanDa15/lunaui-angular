@@ -11,6 +11,43 @@ const meta: Meta<LunaButtonComponent> = {
     backgrounds: {
       default: 'dark'
     },
+    docs: {
+      description: {
+        component: `
+The LunaUI Button component is a versatile and highly customizable element designed to enhance the interactivity and accessibility of your user interfaces. Built with a focus on modern aesthetics and usability.
+
+#### Installation
+
+\`\`\`bash
+npm i @lunaui/angular
+\`\`\`
+
+#### Usage
+
+\`\`\`typescript
+import { LunaButtonComponent } from '@lunaui/angular';
+
+@component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [LunaButtonComponent],
+})
+
+\`\`\`
+
+\`\`\`html
+<luna-button
+  [size]="'medium'"
+  [disabled]="false"
+  [variant]="'filled'"
+  (onClick)="onClick($event)">
+  Click Me
+</luna-button>
+\`\`\`
+
+        `
+      }
+    }
   },
   argTypes: {
     size: {
