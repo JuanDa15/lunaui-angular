@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/JuanDa15/lunaui-angular/compare/v2.0.0...v2.1.0) (2024-09-18)
+
+
+### Features
+
+* created types file and public apis ([46a46f8](https://github.com/JuanDa15/lunaui-angular/commit/46a46f8615bac246fe1457ae05042f716dca3618))
+
 # [2.0.0](https://github.com/JuanDa15/lunaui-angular/compare/v1.0.0...v2.0.0) (2024-09-08)
 
 
