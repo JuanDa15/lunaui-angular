@@ -11,6 +11,16 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "Filled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lunaui-angular/src/lib/buttons/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  name: 'Button',\n  args: {\n    variant: 'filled',\n    size: 'medium'\n  },\n  play: async ({ canvasElement, step }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByTestId('luna-button')\n    const onClickFn = fn()\n    button.onclick = onClickFn();\n\n    await step('Click button', async () => {\n      await userEvent.click(button);\n    })\n    await waitFor(() => {\n      expect(button).toHaveFocus();\n      expect(onClickFn).toHaveBeenCalled();\n    });\n\n    await step('Blur button', async () => {\n      await userEvent.click(document.body);\n    })\n    await waitFor(() => expect(button).not.toHaveFocus());\n  }\n}"
+            },
+            {
                 "name": "Large",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -18,7 +28,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Button',\n  },\n}"
+                "defaultValue": "{\r\n  args: {\r\n    size: 'large',\r\n    label: 'Button',\r\n  },\r\n}"
             },
             {
                 "name": "LoggedIn",
@@ -68,7 +78,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\n  title: 'Example/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: {\n      control: 'color',\n    },\n  },\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\n  args: { onClick: fn() },\n}"
+                "defaultValue": "{\r\n  title: 'Example/Button',\r\n  component: ButtonComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    backgroundColor: {\r\n      control: 'color',\r\n    },\r\n  },\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n  args: { onClick: fn() },\r\n}"
             },
             {
                 "name": "meta",
@@ -97,8 +107,8 @@
                 "file": "projects/lunaui-angular/src/lib/buttons/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\n  title: 'Buttons/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  parameters: {\n    layout: 'centered',\n  }\n}"
+                "type": "Meta<LunaButtonComponent>",
+                "defaultValue": "{\n  title: 'Components/Buttons/Button',\n  component: LunaButtonComponent,\n  tags: ['autodocs', 'stable'],\n  parameters: {\n    layout: 'centered',\n    backgrounds: {\n      default: 'dark'\n    },\n  },\n  argTypes: {\n    size: {\n      name: 'Size',\n      options: ['small', 'medium', 'large'],\n      control: { type: 'select' },\n      description: 'The size of the button',\n      table: {\n        defaultValue: { summary: 'medium' },\n        category: 'Inputs',\n        type: {\n          summary: 'small | medium | large'\n        }\n      }\n    },\n    disabled: {\n      name: 'Disabled',\n      control: { type: 'boolean' },\n      description: 'Whether the button is disabled',\n      table: {\n        defaultValue: { summary: 'false' },\n        category: 'Inputs',\n        type: {\n          summary: 'boolean'\n        }\n      },\n    },\n    variant: {\n      name: 'Variant',\n      options: ['filled', 'tonal', 'outlined', 'text', 'elevated'],\n      control: \"select\",\n      description: 'The variant of the button',\n      table: {\n        defaultValue: { summary: 'filled' },\n        category: 'Inputs',\n        type: {\n          summary: 'filled | tonal | outlined | text | elevated'\n        }\n      }\n    },\n    value: {\n      name: 'Value',\n      control: 'text',\n      description: 'The text to display in the button',\n      table: {\n        defaultValue: { summary: 'Try me !!' },\n        category: 'Inputs',\n        type: {\n          summary: 'string'\n        }\n      }\n    },\n    styles: {\n      name: 'Styles',\n      control: 'object',\n      description: 'The styles to apply to the button',\n      table: {\n        defaultValue: { summary: '{}' },\n        category: 'Inputs',\n        type: {\n          summary: 'Record<string, string>'\n        }\n      }\n    },\n    focus: {\n      name: 'Focus',\n      description: 'Emitted when the button is focused',\n      table: {\n        category: 'Events',\n        type: {\n          summary: 'EventEmitter<FocusEvent>'\n        }\n      }\n    },\n    blur: {\n      name: 'Blur',\n      description: 'Emitted when the button loses focus',\n      table: {\n        category: 'Events',\n        type: {\n          summary: 'EventEmitter<FocusEvent>'\n        }\n      }\n    },\n    onClick: {\n      name: 'onClick',\n      description: 'Emitted when the button is clicked',\n      table: {\n        category: 'Events',\n        type: {\n          summary: 'EventEmitter<Event>'\n        }\n      }\n    }\n  },\n  args: {\n    size: 'medium',\n    disabled: false,\n    variant: 'filled',\n    value: 'Try me !!',\n    styles: {},\n    onClick: fn(),\n    focus: fn(),\n    blur: fn()\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <luna-button\n        [size]=\"size\"\n        [disabled]=\"disabled\"\n        [variant]=\"variant\"\n        [styles]=\"styles\"\n        (onClick)=\"onClick($event)\"\n        (focus)=\"focus($event)\"\n        (blur)=\"blur($event)\"\n      >\n        {{value}}\n      </luna-button>`\n  })\n\n}"
             },
             {
                 "name": "preview",
@@ -108,7 +118,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Preview",
-                "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
+                "defaultValue": "{\n  parameters: {\n    docs: {\n      title: 'Luna UI',\n    },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
             },
             {
                 "name": "Primary",
@@ -118,17 +128,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Button',\n  },\n}"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/lunaui-angular/src/lib/buttons/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Button'\n  }\n}"
+                "defaultValue": "{\r\n  args: {\r\n    primary: true,\r\n    label: 'Button',\r\n  },\r\n}"
             },
             {
                 "name": "Secondary",
@@ -138,7 +138,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Button',\n  },\n}"
+                "defaultValue": "{\r\n  args: {\r\n    label: 'Button',\r\n  },\r\n}"
             },
             {
                 "name": "Small",
@@ -148,7 +148,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Button',\n  },\n}"
+                "defaultValue": "{\r\n  args: {\r\n    size: 'small',\r\n    label: 'Button',\r\n  },\r\n}"
             }
         ],
         "functions": [],
@@ -190,7 +190,7 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonComponent>",
+                "rawtype": "StoryObj<LunaButtonComponent>",
                 "file": "projects/lunaui-angular/src/lib/buttons/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -200,6 +200,28 @@
         ],
         "enumerations": [],
         "groupedVariables": {
+            "projects/lunaui-angular/src/lib/buttons/button/button.stories.ts": [
+                {
+                    "name": "Filled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lunaui-angular/src/lib/buttons/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  name: 'Button',\n  args: {\n    variant: 'filled',\n    size: 'medium'\n  },\n  play: async ({ canvasElement, step }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByTestId('luna-button')\n    const onClickFn = fn()\n    button.onclick = onClickFn();\n\n    await step('Click button', async () => {\n      await userEvent.click(button);\n    })\n    await waitFor(() => {\n      expect(button).toHaveFocus();\n      expect(onClickFn).toHaveBeenCalled();\n    });\n\n    await step('Blur button', async () => {\n      await userEvent.click(document.body);\n    })\n    await waitFor(() => expect(button).not.toHaveFocus());\n  }\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lunaui-angular/src/lib/buttons/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<LunaButtonComponent>",
+                    "defaultValue": "{\n  title: 'Components/Buttons/Button',\n  component: LunaButtonComponent,\n  tags: ['autodocs', 'stable'],\n  parameters: {\n    layout: 'centered',\n    backgrounds: {\n      default: 'dark'\n    },\n  },\n  argTypes: {\n    size: {\n      name: 'Size',\n      options: ['small', 'medium', 'large'],\n      control: { type: 'select' },\n      description: 'The size of the button',\n      table: {\n        defaultValue: { summary: 'medium' },\n        category: 'Inputs',\n        type: {\n          summary: 'small | medium | large'\n        }\n      }\n    },\n    disabled: {\n      name: 'Disabled',\n      control: { type: 'boolean' },\n      description: 'Whether the button is disabled',\n      table: {\n        defaultValue: { summary: 'false' },\n        category: 'Inputs',\n        type: {\n          summary: 'boolean'\n        }\n      },\n    },\n    variant: {\n      name: 'Variant',\n      options: ['filled', 'tonal', 'outlined', 'text', 'elevated'],\n      control: \"select\",\n      description: 'The variant of the button',\n      table: {\n        defaultValue: { summary: 'filled' },\n        category: 'Inputs',\n        type: {\n          summary: 'filled | tonal | outlined | text | elevated'\n        }\n      }\n    },\n    value: {\n      name: 'Value',\n      control: 'text',\n      description: 'The text to display in the button',\n      table: {\n        defaultValue: { summary: 'Try me !!' },\n        category: 'Inputs',\n        type: {\n          summary: 'string'\n        }\n      }\n    },\n    styles: {\n      name: 'Styles',\n      control: 'object',\n      description: 'The styles to apply to the button',\n      table: {\n        defaultValue: { summary: '{}' },\n        category: 'Inputs',\n        type: {\n          summary: 'Record<string, string>'\n        }\n      }\n    },\n    focus: {\n      name: 'Focus',\n      description: 'Emitted when the button is focused',\n      table: {\n        category: 'Events',\n        type: {\n          summary: 'EventEmitter<FocusEvent>'\n        }\n      }\n    },\n    blur: {\n      name: 'Blur',\n      description: 'Emitted when the button loses focus',\n      table: {\n        category: 'Events',\n        type: {\n          summary: 'EventEmitter<FocusEvent>'\n        }\n      }\n    },\n    onClick: {\n      name: 'onClick',\n      description: 'Emitted when the button is clicked',\n      table: {\n        category: 'Events',\n        type: {\n          summary: 'EventEmitter<Event>'\n        }\n      }\n    }\n  },\n  args: {\n    size: 'medium',\n    disabled: false,\n    variant: 'filled',\n    value: 'Try me !!',\n    styles: {},\n    onClick: fn(),\n    focus: fn(),\n    blur: fn()\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <luna-button\n        [size]=\"size\"\n        [disabled]=\"disabled\"\n        [variant]=\"variant\"\n        [styles]=\"styles\"\n        (onClick)=\"onClick($event)\"\n        (focus)=\"focus($event)\"\n        (blur)=\"blur($event)\"\n      >\n        {{value}}\n      </luna-button>`\n  })\n\n}"
+                }
+            ],
             "projects/lunaui-angular/src/stories/button.stories.ts": [
                 {
                     "name": "Large",
@@ -209,7 +231,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Button',\n  },\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    size: 'large',\r\n    label: 'Button',\r\n  },\r\n}"
                 },
                 {
                     "name": "meta",
@@ -219,7 +241,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<ButtonComponent>",
-                    "defaultValue": "{\n  title: 'Example/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: {\n      control: 'color',\n    },\n  },\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\n  args: { onClick: fn() },\n}"
+                    "defaultValue": "{\r\n  title: 'Example/Button',\r\n  component: ButtonComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    backgroundColor: {\r\n      control: 'color',\r\n    },\r\n  },\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n  args: { onClick: fn() },\r\n}"
                 },
                 {
                     "name": "Primary",
@@ -229,7 +251,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Button',\n  },\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    primary: true,\r\n    label: 'Button',\r\n  },\r\n}"
                 },
                 {
                     "name": "Secondary",
@@ -239,7 +261,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Button',\n  },\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    label: 'Button',\r\n  },\r\n}"
                 },
                 {
                     "name": "Small",
@@ -249,7 +271,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Button',\n  },\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    size: 'small',\r\n    label: 'Button',\r\n  },\r\n}"
                 }
             ],
             "projects/lunaui-angular/src/stories/header.stories.ts": [
@@ -316,28 +338,6 @@
                     "defaultValue": "{\n  title: 'Example/Page',\n  component: PageComponent,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n}"
                 }
             ],
-            "projects/lunaui-angular/src/lib/buttons/button/button.stories.ts": [
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lunaui-angular/src/lib/buttons/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ButtonComponent>",
-                    "defaultValue": "{\n  title: 'Buttons/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  parameters: {\n    layout: 'centered',\n  }\n}"
-                },
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lunaui-angular/src/lib/buttons/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Button'\n  }\n}"
-                }
-            ],
             "projects/lunaui-angular/.storybook/preview.ts": [
                 {
                     "name": "preview",
@@ -347,7 +347,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Preview",
-                    "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
+                    "defaultValue": "{\n  parameters: {\n    docs: {\n      title: 'Luna UI',\n    },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
                 }
             ]
         },
@@ -398,7 +398,7 @@
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<ButtonComponent>",
+                    "rawtype": "StoryObj<LunaButtonComponent>",
                     "file": "projects/lunaui-angular/src/lib/buttons/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
@@ -428,7 +428,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "meta",
+                "name": "Filled",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -438,7 +438,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Primary",
+                "name": "meta",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
