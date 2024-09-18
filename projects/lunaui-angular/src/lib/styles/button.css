@@ -5,6 +5,7 @@
   padding: 8px 16px;
   cursor: pointer;
   transition: outline 0.3s ease-in-out, background-color 0.3s ease, color 0.3s ease, filter 0.3s ease;
+  display: inline;
 }
 /* Button sizes */
 .luna-btn-small {
