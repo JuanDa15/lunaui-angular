@@ -1,3 +1,5 @@
+@import './button.css';
+
 :root {
   --background-dark: #121212; /* Primary dark background */
   --primary-accent-dark: #00BFFF; /* Bright cyan for primary elements */
