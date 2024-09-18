@@ -1,0 +1,106 @@
+.luna-btn {
+  border-radius: 4px;
+  border: none;
+  font-weight: 500;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: outline 0.3s ease-in-out, background-color 0.3s ease, color 0.3s ease, filter 0.3s ease;
+  display: inline;
+}
+/* Button sizes */
+.luna-btn-small {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+.luna-btn-medium {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+.luna-btn-large {
+  padding: 12px 24px;
+  font-size: 16px;
+}
+/* Button variant */
+.luna-btn-elevated {
+  background-color: var(--background-light);
+  color: var(--primary-accent-light);
+  box-shadow: 0 2px 4px rgba(211, 211, 211, 0.5);;
+}
+.luna-btn-filled {
+  background-color: var(--primary-accent-light);
+  color: var(--background-dark);
+}
+.luna-btn-tonal {
+  background-color: var(--secondary-light-light);
+  color: var(--muted-dark);
+}
+.luna-btn-outlined {
+  background: none;
+  color: var(--primary-accent-light);
+  border: 1px solid var(--primary-accent-light);
+}
+.luna-btn-text {
+  background: none;
+  color: var(--primary-accent-light);
+}
+.luna-btn-text:hover {
+  text-decoration: underline;
+  color: var(--focus-outline-light);
+}
+/* Button states */
+.luna-btn:disabled {
+  filter: grayscale();
+}
+.luna-btn:hover {
+  filter: brightness(90%);
+}
+.luna-btn:active {
+  filter: brightness(80%);
+}
+.luna-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.luna-btn:focus,
+.luna-btn:focus-visible {
+  outline: 2px solid var(--focus-outline-light);
+  outline-offset: 2px;
+}
+
+html.dark .luna-btn:hover {
+  filter: brightness(80%);
+}
+html.dark .luna-btn:active {
+  filter: brightness(70%);
+}
+
+html.dark .luna-btn:focus,
+html.dark .luna-btn:focus-visible {
+  outline: 2px solid var(--focus-outline-dark);
+}
+html.dark .luna-btn-elevated {
+  background-color: var(--background-dark);
+  color: var(--primary-accent-dark);
+  box-shadow: 0 2px 4px var(--muted-dark);
+}
+html.dark .luna-btn-filled {
+  background-color: var(--primary-accent-dark);
+  color: var(--background-light);
+}
+html.dark .luna-btn-tonal {
+  background-color: var(--secondary-light-dark);
+  color: var(--muted-dark);
+}
+html.dark .luna-btn-outlined {
+  background: none;
+  color: var(--primary-accent-dark);
+  border: 1px solid var(--primary-accent-dark);
+}
+html.dark .luna-btn-text {
+  background: none;
+  color: var(--primary-accent-dark);
+}
+html.dark .luna-btn-text:hover {
+  text-decoration: underline;
+  color: var(--focus-outline-dark);
+}

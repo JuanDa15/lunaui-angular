@@ -50,6 +50,9 @@
               "-d",
               "projects/lunaui-angular"
             ],
+            "styles": [
+              "./projects/lunaui-angular/src/lib/styles/styles.css"
+            ],
             "port": 6006
           }
         },
@@ -64,6 +67,9 @@
               "json",
               "-d",
               "projects/lunaui-angular"
+            ],
+            "styles": [
+              "./projects/lunaui-angular/src/lib/styles/styles.css"
             ],
             "outputDir": "storybook-static"
           }

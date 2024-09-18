@@ -1,3 +1,33 @@
-<button style="background-color: #000; color: white" data-testid="button">
-  button xd 42
+<button
+  [ngClass]="{
+    'luna-btn': true,
+    'luna-btn-small': size === 'small',
+    'luna-btn-medium': size === 'medium',
+    'luna-btn-large': size === 'large',
+    'luna-btn-filled': variant === 'filled',
+    'luna-btn-elevated': variant === 'elevated',
+    'luna-btn-tonal': variant === 'tonal',
+    'luna-btn-outlined': variant === 'outlined',
+    'luna-btn-text': variant === 'text',
+    className: !!className,
+  }"
+  [attr.aria-label]="ariaLabel ? ariaLabel : null"
+  [attr.aria-live]="ariaLive ? ariaLive : null"
+  [attr.aria-describedby]="ariaDescribedBy ? ariaDescribedBy : null"
+  [attr.disabled]="disabled ? disabled : null"
+  [attr.form]="form ? form : ''"
+  [attr.name]="name ? name : ''"
+  [attr.popovertarget]="popovertarget ? popovertarget : null"
+  [attr.popovertargetaction]="popovertargetaction ? popovertargetaction : null"
+  [attr.type]="type"
+  [attr.value]="value ? value : null"
+  data-testid="luna-button"
+  tabindex="0"
+  [ngStyle]="styles"
+  (click)="onClick.emit($event)"
+  (focus)="focus.emit($event)"
+  (blur)="blur.emit($event)"
+>
+  <ng-content select="*"></ng-content>
 </button>
+<!-- TODO: Create directive to improve this implementation -->
