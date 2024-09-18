@@ -20,6 +20,7 @@
     "lint": "eslint projects",
     "lint:fix": "eslint projects --fix",
     "storybook": "ng run lunaui-angular:storybook",
+    "storybook:test": "npm run test-storybook",
     "build-storybook": "ng run lunaui-angular:build-storybook"
   },
   "private": false,
@@ -54,7 +55,9 @@
     "@storybook/addon-onboarding": "^8.2.9",
     "@storybook/angular": "^8.2.9",
     "@storybook/blocks": "^8.2.9",
+    "@storybook/manager-api": "^8.2.9",
     "@storybook/test": "^8.2.9",
+    "@storybook/theming": "^8.2.9",
     "@types/jasmine": "~4.0.0",
     "eslint": "^9.9.1",
     "eslint-plugin-storybook": "^0.8.0",
@@ -69,6 +72,7 @@
     "ng-packagr": "^15.2.2",
     "semantic-release": "^24.1.0",
     "storybook": "^8.2.9",
+    "storybook-dark-mode": "^4.0.2",
     "typescript": "~4.9.5",
     "typescript-eslint": "^8.4.0"
   },
