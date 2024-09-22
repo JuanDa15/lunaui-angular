@@ -2,14 +2,22 @@ import { Meta, StoryObj } from "@storybook/angular";
 import { LunaButtonComponent } from "./button.component";
 import { within, expect, userEvent, fn, waitFor } from "@storybook/test";
 
-const meta: Meta<LunaButtonComponent> = {
+interface Props extends LunaButtonComponent {
+  mode: 'light' | 'dark'
+}
+
+const meta: Meta<Props> = {
   title: 'Components/Buttons/Button',
   component: LunaButtonComponent,
   tags: ['autodocs', 'stable'],
   parameters: {
     layout: 'centered',
     backgrounds: {
-      default: 'dark'
+      default: 'dark',
+      values: [
+        { name: 'dark', value: 'var(--background-dark)' },
+        { name: 'light', value: 'var(--background-light)' },
+      ]
     },
     docs: {
       description: {
@@ -50,6 +58,16 @@ import { LunaButtonComponent } from '@lunaui/angular';
     }
   },
   argTypes: {
+    mode: {
+      name: 'Mode',
+      options: ['light', 'dark'],
+      control: { type: 'select' },
+      description: 'The mode of the button',
+      table: {
+        defaultValue: { summary: 'dark' },
+        category: 'Inputs'
+      }
+    },
     size: {
       name: 'Size',
       options: ['small', 'medium', 'large'],
@@ -144,6 +162,7 @@ import { LunaButtonComponent } from '@lunaui/angular';
     }
   },
   args: {
+    mode: 'dark',
     size: 'medium',
     disabled: false,
     variant: 'filled',
@@ -156,6 +175,10 @@ import { LunaButtonComponent } from '@lunaui/angular';
   render: (args) => ({
     props: args,
     template: `
+    <div
+      [class.dark]="mode === 'dark'"
+      [class.light]="mode === 'light'"
+    >
       <luna-button
         [size]="size"
         [disabled]="disabled"
@@ -166,7 +189,9 @@ import { LunaButtonComponent } from '@lunaui/angular';
         (blur)="blur($event)"
       >
         {{value}}
-      </luna-button>`
+      </luna-button>
+    </div>
+    `
   })
 
 }
@@ -175,8 +200,8 @@ export default meta;
 
 type Story = StoryObj<LunaButtonComponent>
 
-export const Filled: Story = {
-  name: 'Button',
+export const Default: Story = {
+  name: 'Default Button',
   args: {
     variant: 'filled',
     size: 'medium'
