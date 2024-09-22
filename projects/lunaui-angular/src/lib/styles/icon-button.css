@@ -1,0 +1,148 @@
+.luna-icon-btn {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: border 0.3s ease, background-color 0.3s ease, color 0.3s ease, width 0.3s ease, height 0.3s ease, filter 0.3s ease;
+  background: none;
+  border: none;
+  color:#000;
+}
+
+.luna-icon-btn:focus,
+.luna-icon-btn:focus-visible {
+  outline: 2px solid var(--focus-outline-light);
+  outline-offset: 2px;
+}
+*.dark .luna-icon-btn:focus,
+*.dark .luna-icon-btn:focus-visible {
+  outline: 2px solid var(--focus-outline-dark);
+}
+.luna-icon-btn:disabled {
+opacity: 0.5;
+cursor: not-allowed;
+}
+
+.luna-icon-btn-small {
+padding: 4px 8px;
+border-radius: 4px;
+}
+
+.luna-icon-btn-medium {
+padding: 8px 12px;
+border-radius: 6px;
+}
+.luna-icon-btn-large {
+padding: 12px 16px;
+border-radius: 8px;
+}
+/*  Filled */
+.luna-icon-btn-filled {
+background-color: var(--primary-accent-light);
+color: var(--background-dark);
+}
+.luna-icon-btn-filled:active {
+background-color: #0073a3;
+}
+.luna-icon-btn-filled:hover {
+filter: brightness(90%);
+}
+*.dark .luna-icon-btn-filled {
+background-color: var(--primary-accent-dark);
+color: var(--background-light);
+}
+*.dark .luna-icon-btn-filled:hover {
+background-color: #008fcc;
+}
+*.dark .luna-icon-btn-filled:active {
+filter: brightness(130%);
+}
+/* Tonal */
+.luna-icon-btn-tonal {
+background-color: var(--secondary-light-light);
+color: var(--muted-dark);
+}
+.luna-icon-btn-tonal:hover {
+filter: brightness(130%);
+}
+.luna-icon-btn-tonal:active {
+filter: brightness(110%);
+}
+*.dark .luna-icon-btn-tonal {
+background-color: var(--secondary-light-dark);
+color: var(--muted-dark);
+}
+*.dark .luna-icon-btn-tonal:hover {
+background-color: var(--secondary-light-dark);
+}
+*.dark .luna-icon-btn-tonal:active {
+filter: brightness(80%);
+}
+/* Elevated */
+.luna-icon-btn-elevated {
+background-color: var(--background-light);
+color: var(--primary-accent-light);
+box-shadow: 0 2px 4px #D3D3D3;
+}
+.luna-icon-btn-elevated:hover {
+filter: brightness(90%);
+}
+.luna-icon-btn-elevated:active {
+filter: brightness(70%);
+}
+*.dark .luna-icon-btn-elevated {
+background-color: var(--background-dark);
+color: var(--primary-accent-dark);
+box-shadow: 0 2px 4px var(--muted-dark);
+}
+*.dark .luna-icon-btn-elevated:hover {
+filter: brightness(170%);
+}
+*.dark .luna-icon-btn-elevated:active {
+filter: brightness(130%);
+}
+/* Text */
+.luna-icon-btn-text {
+background-color: transparent;
+color: var(--primary-accent-light);
+}
+.luna-icon-btn-text:hover {
+filter: brightness(90%);
+}
+.luna-icon-btn-text:active {
+filter: brightness(50%);
+}
+*.dark .luna-icon-btn-text {
+background-color: transparent;
+color: var(--primary-accent-dark);
+}
+*.dark .luna-icon-btn-text:hover {
+filter: brightness(170%);
+}
+*.dark .luna-icon-btn-text:active {
+filter: brightness(100%);
+}
+/* Outlined */
+.luna-icon-btn-outlined {
+background-color: transparent;
+color: var(--primary-accent-light);
+border: 1px solid var(--primary-accent-light);
+}
+.luna-icon-btn-outlined:hover {
+filter: brightness(80%);
+}
+.luna-icon-btn-outlined:active {
+filter: brightness(40%);
+}
+*.dark .luna-icon-btn-outlined {
+background-color: transparent;
+color: var(--primary-accent-dark);
+border: 1px solid var(--primary-accent-dark);
+}
+*.dark .luna-icon-btn-outlined:hover {
+filter: brightness(170%);
+}
+*.dark .luna-icon-btn-outlined:active {
+filter: brightness(80%);
+}

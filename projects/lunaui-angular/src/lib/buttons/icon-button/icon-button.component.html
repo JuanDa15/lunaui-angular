@@ -1,0 +1,32 @@
+<button
+  [ngClass]="{
+    'luna-icon-btn': true,
+    'luna-icon-btn-small': size === 'small',
+    'luna-icon-btn-medium': size === 'medium',
+    'luna-icon-btn-large': size === 'large',
+    'luna-icon-btn-filled': variant === 'filled',
+    'luna-icon-btn-tonal': variant === 'tonal',
+    'luna-icon-btn-elevated': variant === 'elevated',
+    'luna-icon-btn-outlined': variant === 'outlined',
+    'luna-icon-btn-text': variant === 'text',
+    className: !!className,
+  }"
+  [attr.disabled]="disabled ? disabled : null"
+  [attr.aria-label]="ariaLabel ? ariaLabel : null"
+  [attr.aria-live]="ariaLive ? ariaLive : null"
+  [attr.aria-describedby]="ariaDescribedBy ? ariaDescribedBy : null"
+  [attr.form]="form ? form : ''"
+  [attr.name]="name ? name : ''"
+  [attr.popovertarget]="popovertarget ? popovertarget : null"
+  [attr.popovertargetaction]="popovertargetaction ? popovertargetaction : null"
+  [attr.type]="type"
+  [ngStyle]="styles"
+  tabindex="0"
+  (click)="onClick.emit($event)"
+  (focus)="focus.emit($event)"
+  (blur)="blur.emit($event)"
+  data-testid="luna-icon-button"
+>
+  <ng-content select="*"></ng-content>
+</button>
+<!-- TODO: Create directive to improve this implementation -->

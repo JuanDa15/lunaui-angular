@@ -5,7 +5,10 @@
   padding: 8px 16px;
   cursor: pointer;
   transition: outline 0.3s ease-in-out, background-color 0.3s ease, color 0.3s ease, filter 0.3s ease;
-  display: inline;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
 }
 /* Button sizes */
 .luna-btn-small {
@@ -24,7 +27,7 @@
 .luna-btn-elevated {
   background-color: var(--background-light);
   color: var(--primary-accent-light);
-  box-shadow: 0 2px 4px rgba(211, 211, 211, 0.5);;
+  box-shadow: 0 2px 4px rgba(211, 211, 211, 0.5);
 }
 .luna-btn-filled {
   background-color: var(--primary-accent-light);
@@ -67,40 +70,40 @@
   outline-offset: 2px;
 }
 
-html.dark .luna-btn:hover {
+*.dark .luna-btn:hover {
   filter: brightness(80%);
 }
-html.dark .luna-btn:active {
+*.dark .luna-btn:active {
   filter: brightness(70%);
 }
 
-html.dark .luna-btn:focus,
-html.dark .luna-btn:focus-visible {
+*.dark .luna-btn:focus,
+*.dark .luna-btn:focus-visible {
   outline: 2px solid var(--focus-outline-dark);
 }
-html.dark .luna-btn-elevated {
+*.dark .luna-btn-elevated {
   background-color: var(--background-dark);
   color: var(--primary-accent-dark);
   box-shadow: 0 2px 4px var(--muted-dark);
 }
-html.dark .luna-btn-filled {
+*.dark .luna-btn-filled {
   background-color: var(--primary-accent-dark);
   color: var(--background-light);
 }
-html.dark .luna-btn-tonal {
+*.dark .luna-btn-tonal {
   background-color: var(--secondary-light-dark);
   color: var(--muted-dark);
 }
-html.dark .luna-btn-outlined {
+*.dark .luna-btn-outlined {
   background: none;
   color: var(--primary-accent-dark);
   border: 1px solid var(--primary-accent-dark);
 }
-html.dark .luna-btn-text {
+*.dark .luna-btn-text {
   background: none;
   color: var(--primary-accent-dark);
 }
-html.dark .luna-btn-text:hover {
+*.dark .luna-btn-text:hover {
   text-decoration: underline;
   color: var(--focus-outline-dark);
 }

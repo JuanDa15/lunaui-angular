@@ -36,7 +36,7 @@ import { triggerEvent } from "../../helpers/events";
     </luna-button>
   `,
 })
-export class TestWrapperComponent {
+class TestWrapperComponent {
   public size: 'small' | 'medium' | 'large' = 'medium';
   public variant: 'filled' | 'tonal' | 'text' | 'outlined' | 'elevated' = 'filled';
 

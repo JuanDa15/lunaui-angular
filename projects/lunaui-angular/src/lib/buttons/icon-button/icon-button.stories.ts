@@ -1,14 +1,14 @@
 import { Meta, StoryObj } from "@storybook/angular";
-import { LunaButtonComponent } from "./button.component";
+import { LunaIconButtonComponent } from "./icon-button.component";
 import { within, expect, userEvent, fn, waitFor } from "@storybook/test";
 
-interface Props extends LunaButtonComponent {
+interface Props extends LunaIconButtonComponent {
   mode: 'light' | 'dark'
 }
 
 const meta: Meta<Props> = {
-  title: 'Components/Buttons/Button',
-  component: LunaButtonComponent,
+  title: 'Components/Buttons/Icon Button',
+  component: LunaIconButtonComponent,
   tags: ['autodocs', 'stable'],
   parameters: {
     layout: 'centered',
@@ -22,7 +22,7 @@ const meta: Meta<Props> = {
     docs: {
       description: {
         component: `
-The LunaUI Button component is a versatile and highly customizable element designed to enhance the interactivity and accessibility of your user interfaces. Built with a focus on modern aesthetics and usability.
+The LunaUI Button Icon component is designed to provide a streamlined, icon-only button for enhanced UI interactions. Whether used for compact actions, toolbars, or key visual elements, this component brings flexibility and modern design to your interfaces.
 
 #### Installation
 
@@ -33,26 +33,33 @@ npm i @lunaui/angular
 #### Usage
 
 \`\`\`typescript
-import { LunaButtonComponent } from '@lunaui/angular';
+import { LunaIconButtonComponent } from '@lunaui/angular';
 
 @component({
   selector: 'app-root',
   standalone: true,
-  imports: [LunaButtonComponent],
+  imports: [LunaIconButtonComponent],
 })
 
 \`\`\`
 
 \`\`\`html
-<luna-button
+<luna-icon-button
   [size]="'medium'"
   [disabled]="false"
   [variant]="'filled'"
   (onClick)="onClick($event)">
-  Click Me
-</luna-button>
+    <svg
+      #icon fill="none" viewBox="0 0 24 24"
+      stroke-width="1.5" stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round" stroke-linejoin="round"
+        d="M6 18 18 6M6 6l12 12"
+      />
+    </svg>
+</luna-icon-button>
 \`\`\`
-
         `
       }
     }
@@ -106,18 +113,6 @@ import { LunaButtonComponent } from '@lunaui/angular';
         }
       }
     },
-    value: {
-      name: 'Value',
-      control: 'text',
-      description: 'The text to display in the button',
-      table: {
-        defaultValue: { summary: 'Try me !!' },
-        category: 'Inputs',
-        type: {
-          summary: 'string'
-        }
-      }
-    },
     styles: {
       name: 'Styles',
       control: 'object',
@@ -166,7 +161,6 @@ import { LunaButtonComponent } from '@lunaui/angular';
     size: 'medium',
     disabled: false,
     variant: 'filled',
-    value: 'Try me !!',
     styles: {},
     onClick: fn(),
     focus: fn(),
@@ -175,40 +169,44 @@ import { LunaButtonComponent } from '@lunaui/angular';
   render: (args) => ({
     props: args,
     template: `
-    <div
-      [class.dark]="mode === 'dark'"
-      [class.light]="mode === 'light'"
-    >
-      <luna-button
-        [size]="size"
-        [disabled]="disabled"
-        [variant]="variant"
-        [styles]="styles"
-        (onClick)="onClick($event)"
-        (focus)="focus($event)"
-        (blur)="blur($event)"
+      <div
+        [class.dark]="mode === 'dark'"
+        [class.light]="mode === 'light'"
       >
-        {{value}}
-      </luna-button>
-    </div>
+        <luna-icon-button
+          [size]="size"
+          [disabled]="disabled"
+          [variant]="variant"
+          [styles]="styles"
+        >
+          <svg
+            #icon
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18 18 6M6 6l12 12"
+            />
+          </svg>
+        </luna-icon-button>
+      </div>
     `
   })
-
 }
 
 export default meta;
 
-type Story = StoryObj<LunaButtonComponent>
+type Story = StoryObj<LunaIconButtonComponent>;
 
 export const Default: Story = {
   name: 'Default Button',
-  args: {
-    variant: 'filled',
-    size: 'medium'
-  },
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement);
-    const button = canvas.getByTestId('luna-button')
+    const button = canvas.getByTestId('luna-icon-button')
     const onClickFn = fn()
     button.onclick = onClickFn();
 
