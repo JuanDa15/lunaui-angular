@@ -44,11 +44,7 @@ import { LunaButtonComponent } from '@lunaui/angular';
 \`\`\`
 
 \`\`\`html
-<luna-button
-  [size]="'medium'"
-  [disabled]="false"
-  [variant]="'filled'"
-  (onClick)="onClick($event)">
+<luna-button>
   Click Me
 </luna-button>
 \`\`\`
@@ -69,7 +65,7 @@ import { LunaButtonComponent } from '@lunaui/angular';
       }
     },
     size: {
-      name: 'Size',
+      name: 'size',
       options: ['small', 'medium', 'large'],
       control: { type: 'select' },
       description: 'The size of the button',
@@ -81,20 +77,8 @@ import { LunaButtonComponent } from '@lunaui/angular';
         }
       }
     },
-    disabled: {
-      name: 'Disabled',
-      control: { type: 'boolean' },
-      description: 'Whether the button is disabled',
-      table: {
-        defaultValue: { summary: 'false' },
-        category: 'Inputs',
-        type: {
-          summary: 'boolean'
-        }
-      },
-    },
     variant: {
-      name: 'Variant',
+      name: 'variant',
       options: ['filled', 'tonal', 'outlined', 'text', 'elevated'],
       control: "select",
       description: 'The variant of the button',
@@ -106,8 +90,20 @@ import { LunaButtonComponent } from '@lunaui/angular';
         }
       }
     },
+    disabled: {
+      name: 'disabled',
+      control: { type: 'boolean' },
+      description: 'Whether the button is disabled',
+      table: {
+        defaultValue: { summary: 'false' },
+        category: 'Inputs',
+        type: {
+          summary: 'boolean'
+        }
+      },
+    },
     value: {
-      name: 'Value',
+      name: 'value',
       control: 'text',
       description: 'The text to display in the button',
       table: {
@@ -119,7 +115,7 @@ import { LunaButtonComponent } from '@lunaui/angular';
       }
     },
     styles: {
-      name: 'Styles',
+      name: 'styles',
       control: 'object',
       description: 'The styles to apply to the button',
       table: {
@@ -127,6 +123,105 @@ import { LunaButtonComponent } from '@lunaui/angular';
         category: 'Inputs',
         type: {
           summary: 'Record<string, string>'
+        }
+      }
+    },
+    ariaLabel: {
+      name: 'ariaLabel',
+      description: 'The aria label for the button',
+      table: {
+        defaultValue: { summary: '' },
+        category: 'Inputs',
+        type: {
+          summary: 'string'
+        }
+      }
+    },
+    ariaLive: {
+      name: 'ariaLive',
+      description: 'The aria live for the button',
+      table: {
+        defaultValue: { summary: '' },
+        category: 'Inputs',
+        type: {
+          summary: 'off | polite | assertive | '
+        }
+      }
+    },
+    ariaDescribedBy: {
+      name: 'ariaDescribedBy',
+      description: 'The aria described by for the button',
+      table: {
+        defaultValue: { summary: '' },
+        category: 'Inputs',
+        type: {
+          summary: 'string'
+        }
+      }
+    },
+    type: {
+      name: 'Type',
+      description: 'The type of the button',
+      table: {
+        defaultValue: { summary: 'button' },
+        category: 'Inputs',
+        type: {
+          summary: 'button | submit | reset'
+        }
+      }
+    },
+    form: {
+      name: 'form',
+      description: 'The form linked with the button',
+      table: {
+        defaultValue: { summary: '' },
+        category: 'Inputs',
+        type: {
+          summary: 'string'
+        }
+      }
+    },
+    name: {
+      name: 'name',
+      description: 'The name of the button',
+      table: {
+        defaultValue: { summary: '' },
+        category: 'Inputs',
+        type: {
+          summary: 'string'
+        }
+      }
+    },
+    popovertarget: {
+      name: 'popovertarget',
+      description: 'The popover target for the button',
+      table: {
+        defaultValue: { summary: '' },
+        category: 'Inputs',
+        type: {
+          summary: 'string'
+        }
+      }
+    },
+    popovertargetaction: {
+      name: 'popovertargetaction',
+      description: 'The popover target action for the button',
+      table: {
+        defaultValue: { summary: 'null' },
+        category: 'Inputs',
+        type: {
+          summary: 'hide | show | toggle | null'
+        }
+      }
+    },
+    className: {
+      name: 'className',
+      description: 'The class name for the button',
+      table: {
+        defaultValue: { summary: '' },
+        category: 'Inputs',
+        type: {
+          summary: 'string'
         }
       }
     },
