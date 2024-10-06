@@ -4,14 +4,24 @@ import { ComponentFixture } from "@angular/core/testing";
 import { By } from "@angular/platform-browser";
 
 
+
+
 export function queryById<F = any, T = any>(
-  fixture: ComponentFixture<F>,
+  scope: ComponentFixture<F> | DebugElement,
   id: string
 ): [DebugElement, T] {
   if (!id) throw new Error('Test ID is required');
 
   const templateSelector = `[data-testid="${id}"]`;
-  const debug = fixture.debugElement.query(By.css(templateSelector));
+  let debug;
+
+  if (scope instanceof ComponentFixture) {
+    debug = scope.debugElement.query(By.css(templateSelector));
+  }
+  if (scope instanceof DebugElement) {
+    debug = scope.query(By.css(templateSelector));
+  }
+
   let element;
 
   if (!debug) {
@@ -23,12 +33,20 @@ export function queryById<F = any, T = any>(
 }
 
 export function queryBySelector<F = any, T = any>(
-  fixture: ComponentFixture<F>,
+  scope: ComponentFixture<F> | DebugElement,
   selector: string
 ): [DebugElement, T] {
   if (!selector) throw new Error('Test selector is required');
 
-  const debug = fixture.debugElement.query(By.css(selector));
+  let debug;
+
+  if (scope instanceof ComponentFixture) {
+    debug = scope.debugElement.query(By.css(selector));
+  }
+  if (scope instanceof DebugElement) {
+    debug = scope.query(By.css(selector));
+  }
+
   let element;
 
   if (!debug) {
@@ -40,12 +58,19 @@ export function queryBySelector<F = any, T = any>(
 }
 
 export function queryAll<F = any>(
-  fixture: ComponentFixture<F>,
+  scope: ComponentFixture<F> | DebugElement,
   selector: string
 ): DebugElement[] {
   if (!selector) throw new Error('Test selector is required');
 
-  const debug = fixture.debugElement.queryAll(By.css(selector));
+  let debug;
+
+  if (scope instanceof ComponentFixture) {
+    debug = scope.debugElement.queryAll(By.css(selector));
+  }
+  if (scope instanceof DebugElement) {
+    debug = scope.queryAll(By.css(selector));
+  }
 
   if (!debug) {
     throw new Error(`Elements with selector: ${selector} not found`);
@@ -55,10 +80,19 @@ export function queryAll<F = any>(
 }
 
 export function queryAllByDirective<T, D>(
-  fixture: ComponentFixture<T>,
+  scope: ComponentFixture<T> | DebugElement,
   directive: Type<D>
 ): DebugElement[] {
-  return fixture.debugElement.queryAll(By.directive(directive));
+  let debug;
+
+  if (scope instanceof ComponentFixture) {
+    debug = scope.debugElement.queryAll(By.directive(directive));
+  }
+
+  if (scope instanceof DebugElement) {
+    debug = scope.queryAll(By.directive(directive));
+  }
+  return debug || [];
 }
 
 export function getText<F = any>(

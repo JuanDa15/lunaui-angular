@@ -1,0 +1,67 @@
+.luna-alert {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-wrap: pretty;
+  position: relative;
+}
+
+.luna-alert__success {
+  background-color: #A5D6A7;
+  color: #1B5E20;
+  border: 1px solid #1B5E20;
+}
+
+.luna-alert__error {
+  background-color: #EF9A9A;
+  color: #B71C1C;
+  border: 1px solid #B71C1C;
+}
+
+.luna-alert__warning {
+  background-color: #FFF59D;
+  color: #F9A825;
+  border: 1px solid #F9A825;
+}
+
+.luna-alert__info {
+  background-color: #90CAF9;
+  color: #1565C0;
+  border: 1px solid #1565C0;
+}
+.luna-alert__small {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+.luna-alert__medium {
+  padding: 12px 16px;
+  font-size: 16px;
+}
+.luna-alert__large {
+  padding: 16px 20px;
+  font-size: 18px;
+}
+
+.luna-alert-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(211, 211, 211, 0.5);
+}
+.luna-alert-text {
+  background: none;
+  border: none;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+luna-icon-button {
+  position: absolute;
+  top: 2px;
+  right: 1px;
+}

@@ -1,0 +1,130 @@
+<p
+  *ngIf="show"
+  [ngClass]="{
+    'luna-alert': true,
+    'luna-alert__success': variant === 'success',
+    'luna-alert__error': variant === 'error',
+    'luna-alert__info': variant === 'info',
+    'luna-alert__warning': variant === 'warning',
+    'luna-alert-box': alertStyle === 'box',
+    'luna-alert-text': alertStyle === 'text',
+    'luna-alert__small': size === 'small',
+    'luna-alert__medium': size === 'medium',
+    'luna-alert__large': size === 'large',
+    className: !!className,
+  }"
+  [ngStyle]="styles"
+  data-testid="luna-alert"
+  [attr.role]="role"
+  tabindex="0"
+>
+  <luna-icon-button
+    *ngIf="dismissible && alertStyle === 'box'"
+    size="small"
+    variant="text"
+    type="button"
+    [styles]="{ color: 'currentColor', fontSize: 'inherit' }"
+    ariaLabel="dismiss-alert"
+    (click)="show = !show; dismissed.emit()"
+  >
+    <svg
+      #icon
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M6 18 18 6M6 6l12 12"
+      />
+    </svg>
+  </luna-icon-button>
+  <ng-container *ngIf="showIcon">
+    <ng-container [ngSwitch]="variant">
+      <ng-container *ngSwitchCase="'info'">
+        <ng-container *ngTemplateOutlet="info"></ng-container>
+      </ng-container>
+      <ng-container *ngSwitchCase="'error'">
+        <ng-container *ngTemplateOutlet="error"></ng-container>
+      </ng-container>
+      <ng-container *ngSwitchCase="'warning'">
+        <ng-container *ngTemplateOutlet="warning"></ng-container>
+      </ng-container>
+      <ng-container *ngSwitchCase="'success'">
+        <ng-container *ngTemplateOutlet="success"></ng-container>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+  <ng-content select="*"></ng-content>
+</p>
+
+<ng-template #info>
+  <svg
+    width="24"
+    height="24"
+    fill="none"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="2"
+    viewBox="0 0 24 24"
+  >
+    <path stroke="none" d="M0 0h24v24H0z" />
+    <path d="M3 12a9 9 0 1 0 18 0 9 9 0 1 0-18 0M12 9v4M12 16v.01" />
+  </svg>
+</ng-template>
+
+<ng-template #success>
+  <svg
+    width="24"
+    height="24"
+    fill="none"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="2"
+    viewBox="0 0 24 24"
+  >
+    <path stroke="none" d="M0 0h24v24H0z" />
+    <path d="M3 12a9 9 0 1 0 18 0 9 9 0 1 0-18 0" />
+    <path d="m9 12 2 2 4-4" />
+  </svg>
+</ng-template>
+
+<ng-template #warning>
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M12 9v4" />
+    <path
+      d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z"
+    />
+    <path d="M12 16h.01" />
+  </svg>
+</ng-template>
+
+<ng-template #error>
+  <svg
+    width="24"
+    height="24"
+    fill="none"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="2"
+    viewBox="0 0 24 24"
+  >
+    <path stroke="none" d="M0 0h24v24H0z" />
+    <path d="M12 19v.01M12 15V5" />
+  </svg>
+</ng-template>
