@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/JuanDa15/lunaui-angular/compare/v2.2.0...v2.3.0) (2024-10-06)
+
+
+### Features
+
+* Alert component end ([36848ee](https://github.com/JuanDa15/lunaui-angular/commit/36848ee7a4088aab4768e5463ba13d0dfc9f0c54))
+
 # [2.2.0](https://github.com/JuanDa15/lunaui-angular/compare/v2.1.0...v2.2.0) (2024-09-22)
 
 
