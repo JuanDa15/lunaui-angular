@@ -93,7 +93,7 @@ import { LunaButtonComponent } from '@lunaui/angular';
     disabled: {
       name: 'disabled',
       control: { type: 'boolean' },
-      description: 'Whether the button is disabled',
+      description: 'The disabled attribute makes an element (like a button, input, or select) inactive, preventing user interaction and excluding it from form submission.',
       table: {
         defaultValue: { summary: 'false' },
         category: 'Inputs',
@@ -105,7 +105,7 @@ import { LunaButtonComponent } from '@lunaui/angular';
     value: {
       name: 'value',
       control: 'text',
-      description: 'The text to display in the button',
+      description: 'The value attribute specifies the initial data or content of an element, commonly used in form elements like <button>.',
       table: {
         defaultValue: { summary: 'Try me !!' },
         category: 'Inputs',
@@ -128,7 +128,7 @@ import { LunaButtonComponent } from '@lunaui/angular';
     },
     ariaLabel: {
       name: 'ariaLabel',
-      description: 'The aria label for the button',
+      description: 'The aria-label attribute provides an accessible name for an element, allowing screen readers to describe it when there’s no visible label.',
       table: {
         defaultValue: { summary: '' },
         category: 'Inputs',
@@ -139,7 +139,7 @@ import { LunaButtonComponent } from '@lunaui/angular';
     },
     ariaLive: {
       name: 'ariaLive',
-      description: 'The aria live for the button',
+      description: 'The aria-live attribute announces dynamic content changes to screen readers, specifying the priority level (off, polite, or assertive) to control how updates are conveyed to users.',
       table: {
         defaultValue: { summary: '' },
         category: 'Inputs',
@@ -150,7 +150,7 @@ import { LunaButtonComponent } from '@lunaui/angular';
     },
     ariaDescribedBy: {
       name: 'ariaDescribedBy',
-      description: 'The aria described by for the button',
+      description: 'The aria-describedby attribute links an element to another element that provides additional descriptive information, helping screen readers announce supplementary context or guidance.',
       table: {
         defaultValue: { summary: '' },
         category: 'Inputs',
@@ -161,7 +161,7 @@ import { LunaButtonComponent } from '@lunaui/angular';
     },
     type: {
       name: 'Type',
-      description: 'The type of the button',
+      description: 'The type attribute specifies the type of an element, commonly used in <button> (e.g., submit, reset) to define its behavior and format.',
       table: {
         defaultValue: { summary: 'button' },
         category: 'Inputs',
@@ -172,7 +172,7 @@ import { LunaButtonComponent } from '@lunaui/angular';
     },
     form: {
       name: 'form',
-      description: 'The form linked with the button',
+      description: 'The form attribute associates an element (like <input>, <button>) with a specific <form> by its id, allowing the element to be part of the form even if it’s located outside of it.',
       table: {
         defaultValue: { summary: '' },
         category: 'Inputs',
@@ -183,7 +183,7 @@ import { LunaButtonComponent } from '@lunaui/angular';
     },
     name: {
       name: 'name',
-      description: 'The name of the button',
+      description: 'The name attribute assigns an identifier to form elements (like <input>, <select>, <textarea>) for server-side data submission, allowing data to be referenced by this name when the form is submitted.',
       table: {
         defaultValue: { summary: '' },
         category: 'Inputs',
@@ -194,7 +194,7 @@ import { LunaButtonComponent } from '@lunaui/angular';
     },
     popovertarget: {
       name: 'popovertarget',
-      description: 'The popover target for the button',
+      description: 'The popovertarget attribute specifies the id of an element that should be displayed as a popover, linking the triggering element to the popover content for display on interaction.',
       table: {
         defaultValue: { summary: '' },
         category: 'Inputs',
@@ -205,7 +205,7 @@ import { LunaButtonComponent } from '@lunaui/angular';
     },
     popovertargetaction: {
       name: 'popovertargetaction',
-      description: 'The popover target action for the button',
+      description: 'The popovertargetaction attribute defines the action that triggers the popover linked by popovertarget (e.g., show, hide, toggle), controlling how and when the popover appears.',
       table: {
         defaultValue: { summary: 'null' },
         category: 'Inputs',

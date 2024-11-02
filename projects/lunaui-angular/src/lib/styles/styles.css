@@ -1,6 +1,7 @@
 @import './button.css';
 @import './icon-button.css';
 @import './alert.css';
+@import './input.css';
 
 :root {
   --background-dark: #121212; /* Primary dark background */
@@ -13,4 +14,14 @@
   --secondary-light-light: #707070; /*  Dark gray */
   --muted-light: #F5F5F5; /* Light muted  */
   --focus-outline-light: #007ACC; /* Blue outline*/
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*::after, *::before {
+  box-sizing: inherit;
 }

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/angular";
 import { LunaAlertComponent } from "./alert.component";
-import { expect, fn, userEvent, waitFor, within } from "@storybook/test";
+import { fn } from "@storybook/test";
 
 interface Props extends LunaAlertComponent {
   content: string;
@@ -133,7 +133,7 @@ import { LunaIconButtonComponent } from '@lunaui/angular';
     },
     role: {
       name: 'Role',
-      description: 'The role of the alert',
+      description: 'The role attribute defines the purpose of an element, helping assistive technologies understand its function (e.g., button, navigation).',
       defaultValue: 'alert',
       table: {
         defaultValue: { summary: 'alert' },
