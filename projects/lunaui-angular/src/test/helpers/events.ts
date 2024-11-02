@@ -4,7 +4,7 @@ import { ComponentFixture } from "@angular/core/testing";
 import { queryById, queryBySelector } from "./selector";
 
 interface Props<F = any> {
-  fixture: ComponentFixture<F>,
+  fixture: ComponentFixture<F> | DebugElement,
   selector: string,
   withTestId?: boolean,
   eventName: string,

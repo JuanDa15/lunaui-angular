@@ -96,7 +96,7 @@ export function queryAllByDirective<T, D>(
 }
 
 export function getText<F = any>(
-  fixture: ComponentFixture<F>,
+  fixture: ComponentFixture<F> | DebugElement,
   id?: string,
   selector?: string
 ): string {
