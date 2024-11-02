@@ -1,0 +1,65 @@
+<div
+  [ngClass]="[
+    'luna-input',
+    sizeClasses[size],
+    variantClasses[variant],
+    focused ? 'focus' : '',
+    isTruthy(error) ? 'error' : '',
+    isTruthy(disabled) ? 'disabled' : '',
+  ]"
+  data-testid="luna-input"
+>
+  <label [attr.for]="id ? id : null" *ngIf="label">{{ label }}</label>
+
+  <input
+    [type]="type"
+    (focus)="focused = true; focus.emit($event); this.onTouchedFn()"
+    (blur)="focused = false; blur.emit($event)"
+    (change)="onChange($event)"
+    (input)="onInput($event)"
+    [attr.disabled]="isTruthy(disabled) ? true : null"
+    [attr.aria-label]="ariaLabel"
+    [attr.aria-describedby]="ariaDescribedBy"
+    [attr.aria-invalid]="isTruthy(error)"
+    [attr.id]="id ? id : null"
+    [attr.name]="name ? name : null"
+    [attr.minlength]="minlength ? minlength : null"
+    [attr.maxlength]="maxlength ? maxlength : null"
+    [attr.pattern]="pattern ? pattern : null"
+    [attr.placeholder]="placeholder ? placeholder : null"
+    [attr.readonly]="isTruthy(readonly) ? true : null"
+    [attr.min]="min ? min : null"
+    [attr.max]="max ? max : null"
+    [attr.size]="attrSize"
+    [attr.list]="list ? list : null"
+    [attr.step]="step ? step : null"
+    [attr.value]="
+      defaultValue && !value
+        ? defaultValue
+        : defaultValue && value
+          ? value
+          : value
+    "
+    tabindex="0"
+    [attr.inputmode]="getInputMode()"
+    [lunaNoWhitespaces]="isTruthy(allowWhiteSpaces)"
+    [lunaToUppercase]="isTruthy(transformToUppercase)"
+    [lunaToLowercase]="isTruthy(transformToLowercase)"
+    [lunaOnlyNumbers]="isTruthy(numbersOnly)"
+    [lunaFormatter]="format"
+    [lunaFormatterEvent]="formatEventHandler"
+    [lunaFormatterCurrency]="formatCurrency"
+    [lunaFormatterDecimals]="formatDecimals"
+    [lunaFormatterCurrencyDisplay]="formatCurrencyDisplay"
+  />
+  <luna-alert
+    [show]="!!helperText"
+    alertStyle="text"
+    [variant]="helperTextType"
+    size="small"
+    [styles]="{ margin: '0.5rem 0' }"
+  >
+    {{ helperText }}
+  </luna-alert>
+  <ng-content select="*"></ng-content>
+</div>

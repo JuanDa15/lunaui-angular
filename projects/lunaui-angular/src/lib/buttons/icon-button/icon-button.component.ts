@@ -31,6 +31,7 @@ export class LunaIconButtonComponent implements AfterViewInit {
   @Input() popovertargetaction: PopoverTargetAction | null = null;
   @Input() className: string = '';
   @Input() styles: Record<string, string> = {}
+  @Input() id: string | null = null;
 
   @Output() onClick = new EventEmitter<Event>()
   @Output() focus = new EventEmitter<FocusEvent>()

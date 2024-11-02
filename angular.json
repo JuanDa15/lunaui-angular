@@ -9,6 +9,12 @@
           "changeDetection": "OnPush",
           "inlineStyle": true,
           "standalone": true
+        },
+        "@schematics/angular:directive": {
+          "standalone": true
+        },
+        "@schematics/angular:pipe": {
+          "standalone": true
         }
       },
       "projectType": "library",

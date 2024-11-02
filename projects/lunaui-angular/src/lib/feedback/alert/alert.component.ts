@@ -9,7 +9,7 @@ import { LunaIconButtonComponent } from '../../buttons/public-api';
   imports: [CommonModule, LunaIconButtonComponent],
   templateUrl: './alert.component.html',
   styleUrls: [],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LunaAlertComponent {
   protected visible: boolean = true;
@@ -23,6 +23,7 @@ export class LunaAlertComponent {
   @Input() show: boolean = true;
   @Input() className: string = '';
   @Input() styles: Record<string, string> = {};
+  @Input() id: string | null = null;
 
   @Output() dismissed = new EventEmitter<void>();
 }

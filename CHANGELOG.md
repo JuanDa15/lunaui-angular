@@ -1,3 +1,18 @@
+# [2.3.0](https://github.com/JuanDa15/lunaui-angular/compare/v2.2.0...v2.3.0) (2024-10-06)
+
+
+### Features
+
+* Alert component end ([36848ee](https://github.com/JuanDa15/lunaui-angular/commit/36848ee7a4088aab4768e5463ba13d0dfc9f0c54))
+
+# [2.2.0](https://github.com/JuanDa15/lunaui-angular/compare/v2.1.0...v2.2.0) (2024-09-22)
+
+
+### Features
+
+* Add icon button component, story book documentation and unit and integration test ([ce01353](https://github.com/JuanDa15/lunaui-angular/commit/ce01353ba509ba56d05d539ea5852f60079fcb5b))
+* Icon button component ([#42](https://github.com/JuanDa15/lunaui-angular/issues/42)) ([cf3f786](https://github.com/JuanDa15/lunaui-angular/commit/cf3f78662ae46d0f67e4378da17c518806cd8851))
+
 ### Features
 
 - Button component
