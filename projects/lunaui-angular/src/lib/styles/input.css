@@ -1,0 +1,88 @@
+.luna-input {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.luna-input label {
+  font-size: inherit;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+.luna-input input {
+  font-size: inherit;
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: inherit;
+  color: inherit;
+  border-width: 1px;
+  border-color: var(--secondary-light-light);
+}
+.luna-input.error label{
+  color: #B71C1C;
+}
+.luna-input.error input {
+  outline: 2px solid #B71C1C;
+}
+.luna-input.focus label {
+  color: var(--primary-accent-light);
+}
+.luna-input.focus input {
+  outline: 2px solid var(--primary-accent-light);
+}
+.luna-input.disabled {
+  opacity: 0.6;
+}
+.luna-input.disabled input {
+  cursor: not-allowed;
+  background-color: #dddddd;
+}
+.luna-input-small {
+  font-size: 12px;
+}
+.luna-input-small input {
+  padding: 4px 8px;
+  height: 32px;
+  border-radius: 4px;
+}
+.luna-input-medium{
+  font-size: 14px;
+}
+.luna-input-medium input {
+  padding: 8px 12px;
+  height: 40px;
+  border-radius: 6px;
+}
+.luna-input-large {
+  font-size: 16px;
+}
+.luna-input-large input {
+  padding: 12px 16px;
+  height: 48px;
+  border-radius: 8px;
+}
+.luna-input-filled input {
+  background-color: #dbdbdb;
+  border: none;
+}
+.luna-input-outlined input {
+  border-width: 1px;
+  border-style: solid;
+}
+.luna-input-underlined input {
+  border: none;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+*.dark .luna-input-filled input {
+  background-color: #292929;
+}
+*.dark .luna-input input {
+  border-color: var(--muted-dark);
+}
+*.dark .luna-input.focus label {
+  color: var(--primary-accent-dark);
+}
+*.dark .luna-input.focus input {
+  outline: 2px solid var(--primary-accent-dark);
+}
+*.dark .luna-input.disabled input{
+  background-color: #2e2e2ea6;
+}
