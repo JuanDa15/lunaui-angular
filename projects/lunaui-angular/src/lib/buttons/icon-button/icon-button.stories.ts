@@ -100,7 +100,7 @@ import { LunaIconButtonComponent } from '@lunaui/angular';
     disabled: {
       name: 'disabled',
       control: { type: 'boolean' },
-      description: 'Whether the button is disabled',
+      description: 'The disabled attribute makes an element (e.g., button, input) non-interactive, preventing user actions and disabling focus.',
       table: {
         defaultValue: { summary: 'false' },
         category: 'Inputs',
@@ -123,7 +123,7 @@ import { LunaIconButtonComponent } from '@lunaui/angular';
     },
     ariaLabel: {
       name: 'ariaLabel',
-      description: 'The aria label of the button',
+      description: 'The aria-label attribute provides an accessible name for an element, allowing screen readers to describe it when there’s no visible label.',
       table: {
         defaultValue: { summary: '' },
         category: 'Inputs',
@@ -134,7 +134,7 @@ import { LunaIconButtonComponent } from '@lunaui/angular';
     },
     ariaLive: {
       name: 'ariaLive',
-      description: 'The aria live of the button',
+      description: 'The aria-live attribute announces dynamic content changes to screen readers, specifying the priority level (off, polite, or assertive) to control how updates are conveyed to users.',
       table: {
         defaultValue: { summary: '' },
         category: 'Inputs',
@@ -145,7 +145,7 @@ import { LunaIconButtonComponent } from '@lunaui/angular';
     },
     ariaDescribedBy: {
       name: 'ariaDescribedBy',
-      description: 'The aria described by of the button',
+      description: 'The aria-describedby attribute links an element to another element that provides additional descriptive information, helping screen readers announce supplementary context or guidance.',
       table: {
         defaultValue: { summary: '' },
         category: 'Inputs',
@@ -156,7 +156,7 @@ import { LunaIconButtonComponent } from '@lunaui/angular';
     },
     type: {
       name: 'type',
-      description: 'The type of the button',
+      description: 'The type attribute specifies the type of an element, commonly used in <button> (e.g., submit, reset) to define its behavior and format.',
       table: {
         defaultValue: { summary: 'button' },
         category: 'Inputs',
@@ -167,7 +167,7 @@ import { LunaIconButtonComponent } from '@lunaui/angular';
     },
     form: {
       name: 'form',
-      description: 'The form id linked with this button',
+      description: 'The form attribute associates an element (like <input>, <button>) with a specific <form> by its id, allowing the element to be part of the form even if it’s located outside of it.',
       table: {
         defaultValue: { summary: '' },
         category: 'Inputs',
@@ -178,7 +178,7 @@ import { LunaIconButtonComponent } from '@lunaui/angular';
     },
     name: {
       name: 'name',
-      description: 'The name of the button',
+      description: 'The name attribute assigns an identifier to form elements (like <input>, <select>, <textarea>) for server-side data submission, allowing data to be referenced by this name when the form is submitted.',
       table: {
         defaultValue: { summary: '' },
         category: 'Inputs',
@@ -189,7 +189,7 @@ import { LunaIconButtonComponent } from '@lunaui/angular';
     },
     popovertarget: {
       name: 'popovertarget',
-      description: 'The popover target of the button',
+      description: 'The popovertarget attribute specifies the id of an element that should be displayed as a popover, linking the triggering element to the popover content for display on interaction.',
       table: {
         defaultValue: { summary: '' },
         category: 'Inputs',
@@ -200,7 +200,7 @@ import { LunaIconButtonComponent } from '@lunaui/angular';
     },
     popovertargetaction: {
       name: 'popovertargetaction',
-      description: 'The popover target action of the button',
+      description: 'The popovertargetaction attribute defines the action that triggers the popover linked by popovertarget (e.g., show, hide, toggle), controlling how and when the popover appears.',
       table: {
         defaultValue: { summary: 'null' },
         category: 'Inputs',
