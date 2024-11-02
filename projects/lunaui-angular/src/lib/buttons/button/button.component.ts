@@ -25,6 +25,7 @@ export class LunaButtonComponent {
   @Input() className: string = '';
   @Input() styles: Record<string, string> = {}
   @Input() value: string | null = null;
+  @Input() id: string | null = null;
 
   @Output() onClick = new EventEmitter<Event>()
   @Output() focus = new EventEmitter<FocusEvent>()
