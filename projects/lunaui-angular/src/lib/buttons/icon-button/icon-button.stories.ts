@@ -302,6 +302,9 @@ type Story = StoryObj<LunaIconButtonComponent>;
 
 export const Default: Story = {
   name: 'Default Button',
+  parameters: {
+    layout: 'centered',
+  },
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement);
     const button = canvas.getByTestId('luna-icon-button')
