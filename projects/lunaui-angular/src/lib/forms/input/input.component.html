@@ -33,7 +33,7 @@
     [attr.size]="attrSize"
     [attr.list]="list ? list : null"
     [attr.step]="step ? step : null"
-    [value]="value"
+    [attr.value]="defaultValue ? defaultValue : value"
     tabindex="0"
     [attr.inputmode]="getInputMode()"
     [lunaNoWhitespaces]="isTruthy(allowWhiteSpaces)"

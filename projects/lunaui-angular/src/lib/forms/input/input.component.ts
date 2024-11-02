@@ -64,6 +64,7 @@ export class LunaInputComponent implements ControlValueAccessor {
   @Input() maxlength: string | null = null;
   @Input() pattern: string | null = null;
   @Input() readonly: Booleanish = false;
+  @Input() defaultValue: string | null = null;
   @Input() attrSize = 20;
   @Input() min: string | null = null;
   @Input() max: string | null = null;
@@ -75,7 +76,7 @@ export class LunaInputComponent implements ControlValueAccessor {
   @Input() transformToLowercase: Booleanish = false;
   @Input() numbersOnly: Booleanish = false;
 
-  @Input() format: LunaFormatTypes = null;
+  @Input() format: LunaFormatTypes | null = null;
   @Input() formatEventHandler: LunaFormatEventHandler = 'input';
   @Input() formatCurrency: string = 'USD';
   @Input() formatDecimals: number = 0;
