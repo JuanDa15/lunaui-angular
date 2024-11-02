@@ -1,15 +1,11 @@
 import { Directive, HostListener, Input } from '@angular/core';
-import { FormatterService } from '../../helpers/public-api';
+import { toCreditCard, toCurrency, toPhone } from '../../helpers/formatter';
 
 @Directive({
   selector: '[lunaFormatter]',
   standalone: true
 })
 export class FormatterDirective {
-
-  constructor(
-    private _formatter: FormatterService,
-  ) { }
 
   @Input('lunaFormatter') format: 'currency' | 'creditCard' | 'phone' | null = null;
   @Input('lunaFormatterEvent') formatEvent: 'input' | 'change' = 'input';
@@ -48,7 +44,7 @@ export class FormatterDirective {
     const { type } = input;
     if (type !== 'text') return;
 
-    const { formatted } = this._formatter.toCurrency({
+    const { formatted } = toCurrency({
       value: input.value,
       currency: this.currency,
       decimals: this.decimals,
@@ -61,14 +57,14 @@ export class FormatterDirective {
     const input = event.target as HTMLInputElement;
     const { type } = input;
     if (type !== 'text') return;
-    const { formatted } = this._formatter.toCreditCard(input.value);
+    const { formatted } = toCreditCard(input.value);
     input.value = formatted;
   }
   private _formatPhone(event: InputEvent): void {
     const input = event.target as HTMLInputElement;
     const { type } = input;
     if (type !== 'text') return;
-    const { formatted } = this._formatter.toPhone(input.value);
+    const { formatted } = toPhone(input.value);
     input.value = formatted;
   }
 
