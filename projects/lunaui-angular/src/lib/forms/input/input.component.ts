@@ -43,7 +43,6 @@ export class LunaInputComponent implements ControlValueAccessor {
   }
 
   protected focused = false;
-  protected controlDisabled = false;
   public isTruthy = isTruthy
   public onChangeFn: (value: string) => void = (value: string) => { };
   public onTouchedFn: () => void = () => { };
@@ -129,7 +128,7 @@ export class LunaInputComponent implements ControlValueAccessor {
     this.onTouchedFn = fn;
   }
   setDisabledState?(isDisabled: boolean): void {
-    this.controlDisabled = isDisabled ?? false;
+    this.disabled = isDisabled ?? false;
     this._cdr.detectChanges();
   }
 
