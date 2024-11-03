@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/JuanDa15/lunaui-angular/compare/v2.3.0...v2.4.0) (2024-11-02)
+
+
+### Features
+
+* Add id attribute to icon button ([1e153d7](https://github.com/JuanDa15/lunaui-angular/commit/1e153d752f173f99bbe9383e5d117a84738aacd8))
+
 # [2.3.0](https://github.com/JuanDa15/lunaui-angular/compare/v2.2.0...v2.3.0) (2024-10-06)
 
 
