@@ -1,15 +1,17 @@
 import { Component, DebugElement } from "@angular/core";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { LunaFormatTypes, LunaInputComponent, LunaInputSize, LunaInputVariant } from "projects/lunaui-angular/src/public-api";
-import { getText, queryById, queryBySelector } from "../../helpers/selector";
 import { Booleanish } from "projects/lunaui-angular/src/lib/ts-helpers/ts-helpers";
-import { existByTestId } from "../../helpers/finder";
+import { FormControl, ReactiveFormsModule } from "@angular/forms";
+import { getText, queryById, queryBySelector } from "../helpers/selector";
+import { existByTestId } from "../helpers/finder";
 
 @Component({
   selector: 'test-wrapper',
   standalone: true,
   imports: [
-    LunaInputComponent
+    LunaInputComponent,
+    ReactiveFormsModule
   ],
   template: `
     <luna-input
@@ -17,7 +19,6 @@ import { existByTestId } from "../../helpers/finder";
       [size]="size"
       [variant]="variant"
       [error]="error"
-      [disabled]="disabled"
       [helperText]="helperText"
       [allowWhiteSpaces]="allowWhiteSpaces"
       [numbersOnly]="numbersOnly"
@@ -28,15 +29,16 @@ import { existByTestId } from "../../helpers/finder";
       (blur)="onBlur($event)"
       (input)="onInput($event)"
       (change)="onChange($event)"
+      [formControl]="control"
     ></luna-input>
   `
 })
 class TestWrapperComponent {
+  public control = new FormControl()
   public label = ''
   public size: LunaInputSize = 'medium';
   public variant: LunaInputVariant = 'outlined';
   public error: Booleanish = false;
-  public disabled: Booleanish = false;
   public helperText = 'This is a helper text';
   public allowWhiteSpaces = false
   public numbersOnly = false;
@@ -121,22 +123,16 @@ describe('LunaInputComponent - Integration', () => {
   })
   it('Should disable successfully', () => {
     const [debug, element] = queryById(fixture, testId)
-    const [debugInput, elementInput] =
-      queryBySelector<DebugElement, HTMLInputElement>(debug, 'input')
-    expect(elementInput.getAttribute('disabled')).toBeFalsy()
-    expect(element.classList).not.toContain('disabled');
-    component.disabled = true;
+    queryBySelector<DebugElement, HTMLInputElement>(debug, 'input')
+    component.control.disable()
     fixture.detectChanges();
-    expect(elementInput.getAttribute('disabled')).toBeTruthy()
-    expect(element.classList).toContain('disabled');
-    component.disabled = 'false';
+    expect(debug.classes['disabled']).toBeTruthy()
+    component.control.enable()
     fixture.detectChanges();
-    expect(elementInput.getAttribute('disabled')).toBeFalsy()
-    expect(element.classList).not.toContain('disabled');
-    component.disabled = 'true';
+    expect(debug.classes['disabled']).toBeUndefined()
+    component.control.disable()
     fixture.detectChanges();
-    expect(elementInput.getAttribute('disabled')).toBeTruthy()
-    expect(element.classList).toContain('disabled');
+    expect(debug.classes['disabled']).toBeTruthy()
   })
   it('Should show helper text successfully', () => {
     const [debug, element] = queryById(fixture, testId)
@@ -258,7 +254,6 @@ describe('LunaInputComponent - Integration', () => {
     input.dispatchEvent(new Event('input', { bubbles: true }))
     fixture.detectChanges();
     expect(input.value).toEqual('311-341-5414')
-    console.log(input.value)
   })
   it('Should call focus and blur functions', () => {
     const [debug, element] = queryById(fixture, testId)
@@ -285,5 +280,17 @@ describe('LunaInputComponent - Integration', () => {
     fixture.detectChanges();
     expect(inputSpy).toHaveBeenCalled();
     expect(changeSpy).toHaveBeenCalled();
+  })
+  it('Should update the values in the formControl correctly', () => {
+    component.format = 'phone';
+    fixture.detectChanges();
+    const [debug, element] = queryById(fixture, testId)
+    const [debugInput, input] = queryBySelector<DebugElement, HTMLInputElement>(debug, 'input')
+    input.value = '3113415414';
+    expect(input.value).toEqual('3113415414');
+    input.dispatchEvent(new Event('input', { bubbles: true }))
+    fixture.detectChanges();
+    expect(input.value).toEqual('311-341-5414')
+    expect(component.control.value).toEqual('3113415414')
   })
 });
