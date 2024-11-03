@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, forwardRef, Input, Output, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, forwardRef, inject, Input, Output, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LunaAlertComponent } from '../../feedback/public-api';
 import { LunaAlertVariant } from '../../feedback/alert/alert';
@@ -27,6 +27,7 @@ import { LunaInputSize, LunaInputVariant } from './input';
 
 })
 export class LunaInputComponent implements ControlValueAccessor {
+  private _cdr = inject(ChangeDetectorRef)
   protected value: string = '';
 
   protected sizeClasses = {
@@ -42,7 +43,6 @@ export class LunaInputComponent implements ControlValueAccessor {
   }
 
   protected focused = false;
-
   public isTruthy = isTruthy
   public onChangeFn: (value: string) => void = (value: string) => { };
   public onTouchedFn: () => void = () => { };
@@ -93,7 +93,7 @@ export class LunaInputComponent implements ControlValueAccessor {
     this.input.emit(event as InputEvent);
 
     if (this.format) {
-      const sanitizedValue = this.value.replace(/[^\d.-]/g, '');
+      const sanitizedValue = this.value.replace(/\D/g, '');
       this.onUpdate(sanitizedValue)
       return;
     }
@@ -128,7 +128,8 @@ export class LunaInputComponent implements ControlValueAccessor {
     this.onTouchedFn = fn;
   }
   setDisabledState?(isDisabled: boolean): void {
-    this.disabled = isDisabled;
+    this.disabled = isDisabled ?? false;
+    this._cdr.detectChanges();
   }
 
   get handleInnerUpdate() {
