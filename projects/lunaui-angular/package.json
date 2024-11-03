@@ -6,7 +6,6 @@
     "@angular/core": ">=15.x.x"
   },
   "dependencies": {
-    "@lunaui/angular": "file:",
     "tslib": "^2.3.0"
   },
   "sideEffects": false
