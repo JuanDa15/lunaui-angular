@@ -42,7 +42,7 @@ const config = {
             { type: "fix", section: "Bug Fixes", hidden: false },
             {
               type: "perf",
-              section: "Performance Improvements",
+              section: "Performance Improvements.",
               hidden: false,
             },
             { type: "refactor", section: "Code Refactoring", hidden: false },
