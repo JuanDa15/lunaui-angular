@@ -1,3 +1,11 @@
+## [2.4.1](https://github.com/JuanDa15/lunaui-angular/compare/v2.4.0...v2.4.1) (2024-11-04)
+
+
+### Bug Fixes
+
+* **semantic-release:** Test ([815618d](https://github.com/JuanDa15/lunaui-angular/commit/815618d66a29d8c10124002d6d2c535926b30191))
+* **semantic-release:** Test ([#69](https://github.com/JuanDa15/lunaui-angular/issues/69)) ([a54ba21](https://github.com/JuanDa15/lunaui-angular/commit/a54ba2159199c4861f77c715bf90bce398135db7))
+
 # [2.4.0](https://github.com/JuanDa15/lunaui-angular/compare/v2.3.0...v2.4.0) (2024-11-02)
 
 
