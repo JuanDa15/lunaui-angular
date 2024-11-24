@@ -12,9 +12,15 @@
   <label [attr.for]="id ? id : null" *ngIf="label">{{ label }}</label>
 
   <input
+    [ngStyle]="inputStyles"
     [type]="type"
-    (focus)="focused = true; focus.emit($event); this.onTouchedFn()"
-    (blur)="focused = false; blur.emit($event)"
+    (focus)="
+      focused = true;
+      focus.emit($event);
+      $event.preventDefault();
+      this.onTouchedFn()
+    "
+    (blur)="focused = false; blur.emit($event); $event.preventDefault()"
     (change)="onChange($event)"
     (input)="onInput($event)"
     [attr.disabled]="isTruthy(disabled) ? true : null"
