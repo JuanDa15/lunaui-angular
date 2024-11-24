@@ -69,6 +69,7 @@ import { LunaInputComponent } from '@lunaui/angular';
     placeholder: '',
     helperText: '',
     helperTextType: 'info',
+    readonly: false,
     defaultValue: '',
     attrSize: 20,
     allowWhiteSpaces: true,
@@ -512,6 +513,8 @@ import { LunaInputComponent } from '@lunaui/angular';
           [disabled]="disabled"
           [placeholder]="placeholder"
           [helperText]="helperText"
+          [helperTextType]="helperTextType"
+          [readonly]="readonly"
           [defaultValue]="defaultValue"
           [attrSize]="attrSize"
           [allowWhiteSpaces]="allowWhiteSpaces"
