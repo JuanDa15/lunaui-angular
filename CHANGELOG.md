@@ -1,3 +1,14 @@
+# [2.5.0](https://github.com/JuanDa15/lunaui-angular/compare/v2.4.1...v2.5.0) (2024-11-24)
+
+
+### Features
+
+* **icon-button:**  Add custom classname attribute ([faaab14](https://github.com/JuanDa15/lunaui-angular/commit/faaab1440626cb4d53479b6e1d98dff1f30b208f))
+* **icon-button:** Change boolean input types to booleanish ([1d9ecea](https://github.com/JuanDa15/lunaui-angular/commit/1d9ecea08dcbacb529f1ed3b93a5c83651e80e26))
+* **Input:** Add custom styles to input and add prevent default to avoid multiple events emits ([1f2f565](https://github.com/JuanDa15/lunaui-angular/commit/1f2f565c5b1edc611f7e132f1b87b083d9d0905a))
+* **No-white-spaces-directive:** Allow passwords type to work with the directive ([4a6b9a0](https://github.com/JuanDa15/lunaui-angular/commit/4a6b9a02718c4553fb95cbece4ba6802be59c932))
+* **password-input:** Add new component, password input component with documentation and test ([98c2271](https://github.com/JuanDa15/lunaui-angular/commit/98c2271e86cbc4e92601ae68f80a7bdcbe8f3faa))
+
 ## [2.4.1](https://github.com/JuanDa15/lunaui-angular/compare/v2.4.0...v2.4.1) (2024-11-04)
 
 
