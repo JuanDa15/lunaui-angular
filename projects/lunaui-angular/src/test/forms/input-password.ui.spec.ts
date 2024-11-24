@@ -124,7 +124,7 @@ describe('LunaPasswordInputComponent - Integration', () => {
     expect(changeSpy).toHaveBeenCalled();
   })
   it('Should change input type successfully', () => {
-    const [debug, element] = queryBySelector<any, HTMLInputElement>(fixture, 'input')
+    const [debug, element] = queryBySelector<TestWrapperComponent, HTMLInputElement>(fixture, 'input')
     expect(element.type).toBe('password')
     clickElement({
       fixture, selector: 'button', withTestId: false
