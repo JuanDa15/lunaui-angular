@@ -9,8 +9,8 @@
     'luna-icon-btn-elevated': variant === 'elevated',
     'luna-icon-btn-outlined': variant === 'outlined',
     'luna-icon-btn-text': variant === 'text',
-    className: !!className,
   }"
+  [class]="className"
   [attr.disabled]="disabled ? disabled : null"
   [attr.aria-label]="ariaLabel ? ariaLabel : null"
   [attr.aria-live]="ariaLive ? ariaLive : null"

@@ -13,7 +13,8 @@
   background-color: inherit;
   color: inherit;
   border-width: 1px;
-  border-color: var(--secondary-light-light);
+  border-color: var(--muted-dark);
+  transition: background-color 0.3s ease;
 }
 .luna-input.error label{
   color: #B71C1C;
@@ -25,7 +26,7 @@
   color: var(--primary-accent-light);
 }
 .luna-input.focus input {
-  outline: 2px solid var(--primary-accent-light);
+  outline: 2px solid var(--focus-outline-light);
 }
 .luna-input.disabled {
   opacity: 0.6;
@@ -81,7 +82,7 @@
   color: var(--primary-accent-dark);
 }
 *.dark .luna-input.focus input {
-  outline: 2px solid var(--primary-accent-dark);
+  outline: 2px solid var(--focus-outline-dark);
 }
 *.dark .luna-input.disabled input{
   background-color: #2e2e2ea6;

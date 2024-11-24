@@ -2,6 +2,7 @@
 @import './icon-button.css';
 @import './alert.css';
 @import './input.css';
+@import './password-input.css';
 
 :root {
   --background-dark: #121212; /* Primary dark background */

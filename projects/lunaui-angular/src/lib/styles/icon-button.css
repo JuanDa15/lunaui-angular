@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: border 0.3s ease, background-color 0.3s ease, color 0.3s ease, width 0.3s ease, height 0.3s ease, filter 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, width 0.3s ease, height 0.3s ease, filter 0.3s ease, 0s outline ease;
   background: none;
   border: none;
   color:#000;
@@ -13,7 +13,6 @@
 .luna-icon-btn:focus,
 .luna-icon-btn:focus-visible {
   outline: 2px solid var(--focus-outline-light);
-  outline-offset: 2px;
 }
 *.dark .luna-icon-btn:focus,
 *.dark .luna-icon-btn:focus-visible {
@@ -138,7 +137,7 @@ filter: brightness(40%);
 *.dark .luna-icon-btn-outlined {
 background-color: transparent;
 color: var(--primary-accent-dark);
-border: 1px solid var(--primary-accent-dark);
+border-color: var(--primary-accent-dark);
 }
 *.dark .luna-icon-btn-outlined:hover {
 filter: brightness(170%);
