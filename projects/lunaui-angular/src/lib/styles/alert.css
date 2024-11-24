@@ -60,7 +60,7 @@
   gap: 0.5rem;
 }
 
-luna-icon-button {
+.luna-alert luna-icon-button {
   position: absolute;
   top: 2px;
   right: 1px;

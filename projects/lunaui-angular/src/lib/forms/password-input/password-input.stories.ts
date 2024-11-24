@@ -1,14 +1,14 @@
 import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
-import { LunaInputComponent } from "./input.component";
+import { LunaPasswordInputComponent } from "./password-input.component";
 import { FormatterDirective, OnlyNumbersDirective, ToLowercaseDirective, ToUppercaseDirective } from "../../directives/public-api";
 
-interface Props extends LunaInputComponent {
+interface Props extends LunaPasswordInputComponent {
   mode: 'light' | 'dark'
 }
 
 const meta: Meta<Props> = {
-  title: 'Components/Forms/Input',
-  component: LunaInputComponent,
+  title: 'Components/Forms/Password Input',
+  component: LunaPasswordInputComponent,
   decorators: [
     moduleMetadata({
       imports: [FormatterDirective, ToUppercaseDirective, ToLowercaseDirective, OnlyNumbersDirective]
@@ -27,10 +27,9 @@ const meta: Meta<Props> = {
     docs: {
       description: {
         component: `
-The LunaUI Input Component provides a highly customizable, accessible, and responsive input field designed for various user interactions. Built with flexibility in mind, this component offers support for multiple input styles—such as filled, outlined, and underlined—to suit different design needs. The component accommodates essential form states, including default, focused, hover, active, disabled, and error, allowing developers to create polished and user-friendly interfaces.
-
-The LunaUI Input Component is fully compatible with Angular Reactive Forms, making integration seamless for complex form handling. It includes a robust set of accessibility features, including ARIA support, clear focus indicators, and compatibility with screen readers, ensuring an inclusive experience for all users. With customizable helper texts, error messages, placeholder support, and optional icons, this component provides an efficient, comprehensive solution for input needs across a wide range of applications.
-
+The LunaUI Password Input Component provides a secure and user-friendly way for users to enter and manage password data. Designed with accessibility and customization in mind, this component supports features like password visibility toggling, strength indicators, and validation messages. The component is adaptable to various styles and can seamlessly integrate with Angular forms, ensuring flexibility for both simple and complex form requirements.
+        
+        
 #### Installation
 
 \`\`\`bash
@@ -41,19 +40,20 @@ npm i @lunaui/angular
 
 
 \`\`\`typescript
-import { LunaInputComponent } from '@lunaui/angular';
+import { LunaPasswordInputComponent } from '@lunaui/angular';
 
 @component({
   selector: 'app-root',
   standalone: true,
-  imports: [LunaInputComponent],
+  imports: [LunaPasswordInputComponent],
 })
 
 \`\`\`
 
+
 \`\`\`html
-<luna-input>
-</luna-input>
+<luna-password-input>
+</luna-password-input>
 \`\`\`
         `
       }
@@ -61,7 +61,7 @@ import { LunaInputComponent } from '@lunaui/angular';
   },
   args: {
     mode: 'light',
-    label: 'Test label',
+    label: 'Password*',
     size: 'medium',
     variant: 'outlined',
     error: false,
@@ -72,10 +72,6 @@ import { LunaInputComponent } from '@lunaui/angular';
     readonly: false,
     defaultValue: '',
     attrSize: 20,
-    allowWhiteSpaces: true,
-    transformToUppercase: false,
-    transformToLowercase: false,
-    numbersOnly: false,
   },
   argTypes: {
     mode: {
@@ -220,17 +216,6 @@ import { LunaInputComponent } from '@lunaui/angular';
         }
       }
     },
-    type: {
-      name: 'type',
-      description: "The type attribute specifies the input field's data type and behavior, such as text, number, email, password, date, etc. Each type controls how the input displays and restricts the data format it accepts.",
-      table: {
-        defaultValue: { summary: '' },
-        category: 'Inputs',
-        type: {
-          summary: 'string'
-        }
-      }
-    },
     name: {
       name: 'name',
       description: "The name attribute specifies a unique identifier for the form field when submitting form data. It acts as the key in the form data payload sent to the server, helping identify each input's value on the backend.",
@@ -310,28 +295,6 @@ import { LunaInputComponent } from '@lunaui/angular';
         }
       }
     },
-    min: {
-      name: 'min',
-      description: 'The min attribute sets the minimum allowable value for input types like number, date, or range. It prevents users from entering a value lower than the specified minimum.',
-      table: {
-        defaultValue: { summary: '' },
-        category: 'Inputs',
-        type: {
-          summary: 'number'
-        }
-      }
-    },
-    max: {
-      name: 'max',
-      description: 'The max attribute sets the maximum allowable value for input types like number, date, or range. It prevents users from entering a value higher than the specified maximum.',
-      table: {
-        defaultValue: { summary: '' },
-        category: 'Inputs',
-        type: {
-          summary: 'number'
-        }
-      }
-    },
     step: {
       name: 'step',
       description: 'The step attribute defines the incremental value for input types like number, range, date, or time. It controls the intervals allowed when adjusting the input value',
@@ -354,106 +317,14 @@ import { LunaInputComponent } from '@lunaui/angular';
         }
       }
     },
-    allowWhiteSpaces: {
-      name: 'allowWhiteSpaces',
-      control: 'boolean',
-      description: 'The allowWhiteSpaces attribute allows or disallows whitespace characters in the input value.',
+    inputStyles: {
+      name: 'inputStyles',
+      description: 'The custom input styles of the input',
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: '' },
         category: 'Inputs',
         type: {
-          summary: 'boolean'
-        }
-      }
-    },
-    transformToUppercase: {
-      name: 'transformToUppercase',
-      control: 'boolean',
-      description: 'The transformToUppercase attribute transforms the input value to uppercase characters.',
-      table: {
-        defaultValue: { summary: 'false' },
-        category: 'Inputs',
-        type: {
-          summary: 'boolean'
-        }
-      }
-    },
-    transformToLowercase: {
-      name: 'transformToLowercase',
-      control: 'boolean',
-      description: 'The transformToLowercase attribute transforms the input value to lowercase characters.',
-      table: {
-        defaultValue: { summary: 'false' },
-        category: 'Inputs',
-        type: {
-          summary: 'boolean'
-        }
-      }
-    },
-    numbersOnly: {
-      name: 'numbersOnly',
-      control: 'boolean',
-      description: 'The numbersOnly attribute restricts the input to numeric values only.',
-      table: {
-        defaultValue: { summary: 'false' },
-        category: 'Inputs',
-        type: {
-          summary: 'boolean'
-        }
-      }
-    },
-    format: {
-      name: 'format',
-      description: 'The format attribute formats the input value according to a specified pattern or mask',
-      table: {
-        defaultValue: { summary: 'null' },
-        category: 'Inputs',
-        type: {
-          summary: 'phone | currency | creditCard | null'
-        }
-      }
-    },
-    formatEventHandler: {
-      name: 'formatEventHandler',
-      description: 'The formatEventHandler attribute is a function that handles the formatting of the input value based on the specified format.',
-      table: {
-        defaultValue: { summary: 'input' },
-        category: 'Inputs',
-        type: {
-          summary: 'input | change'
-        }
-      }
-    },
-    formatCurrency: {
-      name: 'formatCurrency',
-      description: 'The formatCurrency attribute specifies the currency code for currency formatting.',
-      table: {
-        defaultValue: { summary: 'USD' },
-        category: 'Inputs',
-        type: {
-          summary: 'string'
-        }
-      }
-    },
-    formatDecimals: {
-      name: 'formatDecimals',
-      description: 'The formatDecimals attribute specifies the number of decimal places for currency formatting.',
-      table: {
-        defaultValue: { summary: '2' },
-        category: 'Inputs',
-        type: {
-          summary: 'number'
-        }
-      }
-    },
-    formatCurrencyDisplay: {
-      name: 'formatCurrencyDisplay',
-      description: 'The formatCurrencyDisplay attribute specifies how the currency should be displayed (symbol, code, or name).',
-      table: {
-        defaultValue: { summary: 'symbol' },
-        category: 'Inputs',
-        type: {
-          summary: 'symbol | code | name | narrowSymbol'
+          summary: 'Record<string, string>'
         }
       }
     },
@@ -501,11 +372,11 @@ import { LunaInputComponent } from '@lunaui/angular';
   render: (args) => ({
     props: args,
     template: `
-      <div
-        [class.dark]="mode === 'dark'"
+      <div 
+        [class.dark]="mode === 'dark'"  
         [class.light]="mode === 'light'"
       >
-        <luna-input
+        <luna-password-input
           [label]="label"
           [size]="size"
           [variant]="variant"
@@ -516,12 +387,7 @@ import { LunaInputComponent } from '@lunaui/angular';
           [helperTextType]="helperTextType"
           [readonly]="readonly"
           [defaultValue]="defaultValue"
-          [attrSize]="attrSize"
-          [allowWhiteSpaces]="allowWhiteSpaces"
-          [transformToUppercase]="transformToUppercase"
-          [transformToLowercase]="transformToLowercase"
-          [numbersOnly]="numbersOnly"
-        />
+        ></luna-password-input>
       </div>
     `
   })
@@ -529,11 +395,12 @@ import { LunaInputComponent } from '@lunaui/angular';
 
 export default meta;
 
-type Story = StoryObj<LunaInputComponent>;
+type Story = StoryObj<LunaPasswordInputComponent>;
 
 export const Default: Story = {
   name: 'Default',
 }
+
 export const InputNoLable: Story = {
   name: 'Input without label',
   args: {

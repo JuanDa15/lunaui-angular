@@ -15,7 +15,7 @@ export class NoWhitespacesDirective {
     if (this.useDirective) return;
 
     if (!type) return;
-    if (type !== 'text' && type !== 'url' && type !== 'tel') return;
+    if (type !== 'text' && type !== 'url' && type !== 'tel' && type !== 'password') return;
 
     if (!value) return;
 

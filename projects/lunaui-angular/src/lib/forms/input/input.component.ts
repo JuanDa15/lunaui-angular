@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, fo
 import { CommonModule } from '@angular/common';
 import { LunaAlertComponent } from '../../feedback/public-api';
 import { LunaAlertVariant } from '../../feedback/alert/alert';
-import { LunaTemplate } from '../../shared/luna-template/luna-template.directive';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { FormatterDirective, LunaFormatCurrencyDisplay, LunaFormatEventHandler, LunaFormatTypes, NoWhitespacesDirective, OnlyNumbersDirective, ToLowercaseDirective, ToUppercaseDirective } from '../../directives/public-api';
 import { Booleanish, isTruthy } from '../../ts-helpers/ts-helpers';
@@ -11,7 +10,7 @@ import { LunaInputSize, LunaInputVariant } from './input';
 @Component({
   selector: 'luna-input',
   standalone: true,
-  imports: [CommonModule, LunaAlertComponent, LunaTemplate, NoWhitespacesDirective, ToUppercaseDirective, ToLowercaseDirective, FormatterDirective, OnlyNumbersDirective],
+  imports: [CommonModule, LunaAlertComponent, NoWhitespacesDirective, ToUppercaseDirective, ToLowercaseDirective, FormatterDirective, OnlyNumbersDirective],
   templateUrl: './input.component.html',
   styles: [
   ],
@@ -71,6 +70,8 @@ export class LunaInputComponent implements ControlValueAccessor {
   @Input() list: string | null = null;
   @Input() step: string | null = null;
 
+  @Input() inputStyles: Record<string, string> = {};
+
   @Input() allowWhiteSpaces: Booleanish = true;
   @Input() transformToUppercase: Booleanish = false;
   @Input() transformToLowercase: Booleanish = false;
@@ -88,6 +89,7 @@ export class LunaInputComponent implements ControlValueAccessor {
   @Output() input = new EventEmitter<InputEvent>();
 
   protected onInput(event: Event) {
+    event.stopPropagation();
     const input = event.target as HTMLInputElement;
     this.value = input.value;
     this.input.emit(event as InputEvent);
@@ -98,7 +100,6 @@ export class LunaInputComponent implements ControlValueAccessor {
       return;
     }
     this.onUpdate(this.value);
-
   }
 
   protected onUpdate(value: string) {
@@ -107,6 +108,7 @@ export class LunaInputComponent implements ControlValueAccessor {
   }
 
   protected onChange(event: Event) {
+    event.stopPropagation()
     this.onTouchedFn()
     this.change.emit(event);
   }

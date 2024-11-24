@@ -1,6 +1,7 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, ContentChild, ElementRef, EventEmitter, Input, Output } from '@angular/core';
 import { BtnType, LunaBtnSizes, LunaBtnVariants, PopoverTargetAction } from '../button/button';
 import { NgClass, NgStyle } from '@angular/common';
+import { Booleanish } from '../../ts-helpers/ts-helpers';
 
 @Component({
   selector: 'luna-icon-button',
@@ -20,7 +21,7 @@ export class LunaIconButtonComponent implements AfterViewInit {
 
   @Input() size: LunaBtnSizes = 'medium';
   @Input() variant: LunaBtnVariants = 'filled'
-  @Input() disabled: boolean = false;
+  @Input() disabled: Booleanish = false;
   @Input() ariaLabel: string = '';
   @Input() ariaLive: 'off' | 'polite' | 'assertive' | '' = '';
   @Input() ariaDescribedBy: string = '';
